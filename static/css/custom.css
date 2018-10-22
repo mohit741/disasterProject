@@ -1,12 +1,17 @@
 body{
     background-color: black;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5, h6 {
 	color: darkorange;
 	}
 hr {
     color: darkorange;
     background-color: orange;
+}
+h4 {
+    display: inline-block;
+    margin-right: 50px;
+    color: steelblue;
 }
 #side-carousel img {
 	margin: 0 auto;
@@ -41,4 +46,7 @@ hr {
     height: 600px;
     width: 500px;
     background-color: grey;
+}
+#winfo {
+    font-size: 20px;
 }

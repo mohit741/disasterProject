@@ -30,9 +30,9 @@
 					<form>
 						<div class="list-group" style="color: dodgerblue;">
 							<div class="form-row">
-                                <h4 style="display: inline-block; padding-right: 35px;">Temperature</h4>{{ data.winfo.main.temp }} &#8451
+                                <h4 style="display: inline-block; padding-right: 50px;">Temperature</h4>{{ data.winfo.main.temp }} &#8451
                             </div>
-                            <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">Rainfall</h4>{% if data.winfo.rain %}
+                            <div class="form-row"><h4 style="display: inline-block; margin-right: 100px;">Rainfall</h4>{% if data.winfo.rain %}
                             {{data.winfo.rain}}
                             {% else %}Nil{% endif %}
                             </div>
@@ -61,40 +61,48 @@
   
 		<!-- Center Column -->
 		<div class="col-sm-6">
-
+		
 			<!-- Alert -->
 			<div class="alert alert-success alert-dismissible" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<strong>Map:</strong> India's Flood zones! Click on the zones to know more.
-			</div>
+				<strong>Map:</strong> India's Flood zones!
+			</div>		
 		
 			<!-- Articles -->
-            <h3>Major flood zones : </h3>
 			<div class="row">
 				<div id="india_flood_map"></div>
-                <script>
-                    var zones = {{ zones | safe }};
-                </script>
                 <script src="{% static "js/flood_main.js" %}"></script>
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap">
                 </script>
 			</div>
-            <br>
+			<hr>
 			<div class="row">
-				<object id="flood_zones" style="height: 600px;width: 500px;" type="image/svg+xml" data="{% static 'images/India_flood_zone_map.svg' %}">
-                Your browser does not support SVG
-                </object>
-                <script src="{% static 'js/svg-pan-zoom.min.js' %}"></script>
-                <script>
-                    // Don't use window.onLoad like this in production, because it can only listen to one function.
-                    window.onload = function() {
-                        svgPanZoom('#flood_zones', {
-                            zoomEnabled: true,
-                            controlIconsEnabled: true
-                         });
-                    };
-                </script>
+				<article class="col-xs-12">
+					<h2>Proactively Envisioned</h2>
+					<p>Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products. Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
+					<p><button class="btn btn-default">Read More</button></p>
+					<p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+					<ul class="list-inline">
+						<li><a href="#">Yesterday</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 21 Comments</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-share"></span> 36 Shares</a></li>
+					</ul>
+				</article>
+			</div>
+			<hr>      
+			<div class="row">
+				<article class="col-xs-12">
+					<h2>Completely Synergize</h2>
+					<p>Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
+					<p><button class="btn btn-default">Read More</button></p>
+					<p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+					<ul class="list-inline">
+						<li><a href="#">2 Days Ago</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 12 Comments</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-share"></span> 18 Shares</a></li>
+					</ul>
+				</article>
 			</div>
 			<hr>
 		</div><!--/Center Column-->
@@ -103,23 +111,23 @@
 	  <!-- Right Column -->
 	  <div class="col-sm-3">
 
-			<!-- Form -->
+			<!-- Form --> 
              <div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						<span class="glyphicon glyphicon-bullhorn"></span>
+						<span class="glyphicon glyphicon-bullhorn"></span> 
 						Important Announcements
 					</h3>
 				</div>
 				<div class="panel-body" style="color: red">
-					<p>{{ data.test }}</p>
+					<p>{{ data.announcement }}</p>
 				</div>
-			</div>
+			</div>	
 			<!-- Progress Bars -->
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						<span class="glyphicon glyphicon-scale"></span>
+						<span class="glyphicon glyphicon-scale"></span> 
 						Dramatically Engage
 					</h3>
 				</div>
@@ -151,7 +159,7 @@
 				</div>
 			</div>
 
-			<!-- Carousel -->
+			<!-- Carousel --> 
  			<h3><span class="glyphicon glyphicon-modal-window"></span> Synergization</h3>
 			<div id="side-carousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
@@ -186,7 +194,7 @@
 							<h3>Proactively Pontificate</h3>
 							<p>Holistically pontificate installed base portals after maintainable products.</p>
 						</div>
-					</div>
+					</div>			  
 				</div>
 				<a class="left carousel-control" href="#side-carousel" role="button" data-slide="prev">
 				  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

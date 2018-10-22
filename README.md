@@ -16,7 +16,7 @@ In the prototype, we will only have a working system for floods. We will gather 
 <li> Prediction of floods based on current rainfall stats and visualising it using graph.
 <li> Map showing danger zones.
 <li> Regular monitoring of the risk of flooding using information from local authorities.
-<li> Suggesting most suitable places to make flood barriers.
+<li> Automatically posting warning in our facebook page 'Let's Cope with Disaster' in case of emergency.
 <li> Analyzing forest density and suggesting places where trees should be planted to minimize impact.
 <li> Suggesting building heights at particular places by analyzing flood levels in that area.
 <li> Analyzing population and residential structures that are prone to damage by flood by showing them on map 

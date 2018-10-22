@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+
+		<!-- Left Column -->
+		<div class="col-sm-3">
+
+			<!-- List-Group Panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title" style="font-size:30px;"><span class="glyphicon glyphicon-random" style="margin-right:30px;"></span>Floods</h1>
+				</div>
+				<div class="list-group">
+					<a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
+					<a href="#" class="list-group-item">Red Zones</a>
+					<a href="#" class="list-group-item">Predictions</a>
+				</div>
+			</div>
+
+			<!-- Text Panel -->
+            
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Dramatically Engage</h1>
+				</div>
+
+				<div class="panel-body">
+					<p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
+					<p><button class="btn btn-default">Engage</button></p>
+				</div>
+			</div>
+
+			<!-- Text Panel -->
+				
+		</div><!--/Left Column-->
+  
+  
+		<!-- Center Column -->
+		<div class="col-sm-6">
+		
+			<!-- Articles -->
+			<div class="row">
+                <span>
+                <iframe width="670" height="490" frameborder="0" src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeLoss"></iframe>
+                <iframe width="315" height="460" frameborder="0" src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeCover"></iframe>
+			    </span>
+            </div>
+			<hr>
+			<div class="row">
+				<article class="col-xs-12">
+					<h2>Proactively Envisioned</h2>
+					<p>Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products. Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
+					<p><button class="btn btn-default">Read More</button></p>
+					<p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+					<ul class="list-inline">
+						<li><a href="#">Yesterday</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 21 Comments</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-share"></span> 36 Shares</a></li>
+					</ul>
+				</article>
+			</div>
+			<hr>
+		</div><!--/Center Column-->
+
+	</div><!--/container-fluid-->
+{% endblock %}
