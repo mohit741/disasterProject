@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-globe"></span> Dark Phoenix's</a>
+                <a class="navbar-brand"><span class="glyphicon glyphicon-globe"></span> Dark Phoenix's</a>
             </div>
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
@@ -48,13 +48,15 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="#">Floods</a></li>
-							<li><a href="#">Earthquakes</a></li>
-							<li><a href="#">Cyclones</a></li>
-							<li><a href="#">Forest Fires</a></li>
-							<li><a href="#"></a></li>
+							<li><a href="{% url 'flood_home' %}">Floods</a></li>
+							<li><a href="{% url 'undev' %}">Earthquakes</a></li>
+							<li><a href="{% url 'undev' %}">Cyclones</a></li>
+							<li><a href="{% url 'undev' %}">Forest Fires</a></li>
 						</ul>
-					</li>    
+					</li>
+                    <li>
+                        <a id="subs" class="btn-warning fa-border" href="{% url 'subscribe' %}">Subscribe</a>
+                    </li>
                 </ul>
 
             </div>

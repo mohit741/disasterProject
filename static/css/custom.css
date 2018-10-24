@@ -50,3 +50,19 @@ h4 {
 #winfo {
     font-size: 20px;
 }
+
+#subs {
+    border: 5px solid orange;
+    border-radius: 8px;
+    background-color: black;
+    color: orange;
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 600px;
+    margin-top: 5px;
+}
+#subs:hover {
+    background: #ff9800;
+    color: white;
+}

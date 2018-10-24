@@ -1,9 +1,10 @@
 import os
 from disasterProject.settings import BASE_DIR
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from cope_with_disaster.fb_auto_post import post_warning
 import requests
 import json
+from .forms import EmailSubForm
 
 
 # Utility functions
@@ -52,6 +53,23 @@ def home(request):
 
 def stats(request):
     return render(request, 'current_stats.html')
+
+
+def undev(request):
+    return render(request, 'undev.html')
+
+def subscribe(request):
+    if request.method == 'POST':
+        form = EmailSubForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/floods')
+        else:
+            return redirect('/subscribe', {'error': 'Error Occured '})
+    else:
+        form = EmailSubForm()
+        return render(request, 'subscribe.html', {'form': form})
+
 
 
 def state_info(request, state):

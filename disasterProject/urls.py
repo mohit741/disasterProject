@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from cope_with_disaster import views
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='floods/')),
     path('floods/', views.home, name='flood_home'),
     path('floods/current_stats', views.stats, name='current_stats'),
     path('floods/states/<slug:state>', views.state_info, name='state_info'),
     path('floods/predictions', views.predict, name='flood_predictions'),
+    path('floods/under_development', views.undev, name='undev'),
+    path('subscribe/', views.subscribe, name='subscribe'),
 ]

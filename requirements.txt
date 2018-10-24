@@ -5,4 +5,5 @@ waitress==1.0.1
 django-apscheduler==0.2.13
 APScheduler==3.5.3
 facebook-sdk==3.0.0
+sendgrid
 
