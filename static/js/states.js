@@ -17,7 +17,7 @@ function initMap1()
             map1.setCenter(results[0].geometry.location);
                         }
     });
-    map1.data.addGeoJson(dams);
+    map1.data.addGeoJson(stations);
     map1.data.setStyle(function(feature) {
         return {
             icon: icon,
@@ -27,7 +27,8 @@ function initMap1()
     var infowindow = new google.maps.InfoWindow();
     map1.data.addListener('click', function(event) {
 	    var myHTML = event.feature.getProperty("name");
-	    infowindow.setContent("<div style='width:150px;'>"+myHTML+"</div>");
+        var code = event.feature.getProperty("code");
+	    infowindow.setContent("<a href='"+window.location.href+"/"+code+"'style='width:150px; font-size:20px;'>"+myHTML+"</a>");
 	// position the infowindow on the marker
 	    infowindow.setPosition(event.feature.getGeometry().get());
 	// anchor the infowindow on the marker

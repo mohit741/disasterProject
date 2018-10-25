@@ -34,7 +34,7 @@ def post_warning():
                          link='copingwithdisaster.azurewebsites.net')
 
 
-@register_job(scheduler, "interval", seconds=300, replace_existing=True)
+@register_job(scheduler, "interval", seconds=60, replace_existing=True)
 def fb_job():
     post_warning()
 

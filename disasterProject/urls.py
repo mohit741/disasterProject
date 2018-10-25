@@ -24,7 +24,9 @@ urlpatterns = [
     path('floods/', views.home, name='flood_home'),
     path('floods/current_stats', views.stats, name='current_stats'),
     path('floods/states/<slug:state>', views.state_info, name='state_info'),
+    path('floods/states/<slug:state>/<slug:code>', views.stations_view, name='station'),
     path('floods/predictions', views.predict, name='flood_predictions'),
     path('floods/under_development', views.undev, name='undev'),
     path('subscribe/', views.subscribe, name='subscribe'),
+    path('about/', views.about, name='about')
 ]

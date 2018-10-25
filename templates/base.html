@@ -43,7 +43,7 @@
                     <a href="{% url 'flood_home' %}">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="{% url 'about' %}">About</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -70,8 +70,36 @@
         <img src="{% static "images/logo.png" %}" alt="Lets cope with disaster" style="height:150px;">
     </div>
     <div id="banner" style="margin-top:-150px;margin-bottom:5px;">
-        <img src="{% static "images/banner.jpeg" %}" alt="Flood" style="height:150px; width:73%; margin-left:24.6%;">
+        <script type="text/javascript">
+            var i = 0;
+            var images = [];
+            var time = 3000;
+
+            //images list
+
+            images[0] = '{% static "images/main1.jpg" %}';
+            images[1] = '{% static "images/main2.jpg" %}';
+            images[2] = '{% static "images/main3.jpg" %}';
+            images[3] = '{% static "images/main10.jpg" %}';
+            images[4] = '{% static "images/main5.jpg" %}';
+            images[5] = '{% static "images/main11.jpg" %}';
+
+            //change image
+            function changeImg() {
+                document.slide.src = images[i];
+
+                if (i < images.length - 1)
+                    i++;
+                else
+                    i = 0;
+                setTimeout("changeImg()", time);
+            }
+
+            window.onload = changeImg;
+        </script>
+        <img name="slide" alt="Flood" style="height:150px; width:73%; margin-left:24.6%;">
     </div>
+
 </div>
 <hr>
 

@@ -1,0 +1,28 @@
+<html>
+<select id="stationName" name="stationName">
+<option value="">- Select value -</option>
+	 <option value="041cdbng__ADKASTHALA__Base">ADKASTHALA</option>
+	 <option value="011-SWRDKOCHI__ARANGALI__Base">ARANGALI</option>
+	 <option value="021-SWRDKOCHI__AYILAM __Base">AYILAM </option>
+	 <option value="001-SWRDKOCHI__ERINJIPUZHA__Base">ERINJIPUZHA</option>
+	 <option value="013-SWRDKOCHI__KALAMPUR__Base">KALAMPUR</option>
+	 <option value="017-SWRDKOCHI__KALLOOPPARA__Base">KALLOOPPARA</option>
+	 <option value="006-SWRDKOCHI__KARATHODU__Base">KARATHODU</option>
+	 <option value="015-SWRDKOCHI__KIDANGOOR__Base">KIDANGOOR</option>
+	 <option value="008-SWRDKOCHI__KUMBIDI__Base">KUMBIDI</option>
+	 <option value="005-SWRDKOCHI__KUNIYIL__Base">KUNIYIL</option>
+	 <option value="004-SWRDKOCHI__KUTTYADI__Base">KUTTYADI</option>
+	 <option value="018-SWRDKOCHI__MALAKKARA__Base">MALAKKARA</option>
+	 <option value="010-SWRDKOCHI__MANKARA__Base">MANKARA</option>
+	 <option value="003-SWRDKOCHI__MUTHANKERA__Base">MUTHANKERA</option>
+	 <option value="012-SWRDKOCHI__NEELEESWARAM__Base">NEELEESWARAM</option>
+	 <option value="019-SWRDKOCHI__PATTAZHY__Base">PATTAZHY</option>
+	 <option value="002-SWRDKOCHI__PERUMANNU__Base">PERUMANNU</option>
+	 <option value="009-SWRDKOCHI__PUDUR__Base">PUDUR</option>
+	 <option value="007-SWRDKOCHI__PULAMANTHOLE__Base">PULAMANTHOLE</option>
+	 <option value="014-SWRDKOCHI__RAMAMANGALAM__Base">RAMAMANGALAM</option>
+	 <option value="020-SWRDKOCHI__THUMPAMON__Base">THUMPAMON</option>
+	 <option value="016-SWRDKOCHI__VANDIPERIYAR__Base">VANDIPERIYAR</option>
+ 
+</select>
+</html>

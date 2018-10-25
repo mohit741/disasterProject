@@ -35,7 +35,9 @@
                             </div>
                             <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">Rainfall</h4>
                                 {% if data.winfo.rain %}
-                                    {{ data.winfo.rain }}
+                                    {% for key, value in data.winfo.rain %}
+                                        {{ value }}
+                                    {% endfor %}
                                 {% else %}Nil{% endif %}
                             </div>
                             <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">
@@ -88,6 +90,7 @@
 
             <!-- Articles -->
             <h3>Major flood zones : </h3>
+            <br>
 
             <div class="row">
                 <div id="india_flood_map"></div>
@@ -100,23 +103,6 @@
                 </script>
             </div>
             <br>
-
-            <div class="row">
-                <object id="flood_zones" style="height: 600px;width: 500px;" type="image/svg+xml"
-                        data="{% static 'images/India_flood_zone_map.svg' %}">
-                    Your browser does not support SVG
-                </object>
-                <script src="{% static 'js/svg-pan-zoom.min.js' %}"></script>
-                <script>
-                    // Don't use window.onLoad like this in production, because it can only listen to one function.
-                    window.onload = function () {
-                        svgPanZoom('#flood_zones', {
-                            zoomEnabled: true,
-                            controlIconsEnabled: true
-                        });
-                    };
-                </script>
-            </div>
             <hr>
         </div><!--/Center Column-->
 
@@ -142,85 +128,62 @@
                     </p>
                 </div>
             </div>
-            <!-- Progress Bars -->
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <span class="glyphicon glyphicon-scale"></span>
-                        Danger Meter
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
-                             aria-valuemin="0" aria-valuemax="100" style="width:100%">
-                            100% Proactively Envisioned
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80"
-                             aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                            80% Objectively Innovated
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45"
-                             aria-valuemin="0" aria-valuemax="100" style="width:45%">
-                            45% Portalled
-                        </div>
-                    </div>
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="35"
-                             aria-valuemin="0" aria-valuemax="100" style="width:35%">
-                            35% Done
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <br>
             <!-- Carousel -->
-            <h3><span class="glyphicon glyphicon-modal-window"></span> Synergization</h3>
+            <h3><span class="glyphicon glyphicon-modal-window"></span> Prevention </h3>
 
             <div id="side-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#side-carousel" data-slide-to="0" class="active"></li>
                     <li data-target="#side-carousel" data-slide-to="1"></li>
                     <li data-target="#side-carousel" data-slide-to="2"></li>
+                    <li data-target="#side-carousel" data-slide-to="3"></li>
+                    <li data-target="#side-carousel" data-slide-to="4"></li>
+                    <li data-target="#side-carousel" data-slide-to="5"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <a href="#">
-                            <img class="img-responsive" src="holder.js/400x300?bg=FF8C00&text=Image%201" alt="">
-                        </a>
+                    <a href="{% static "images/pre1.jpg" %}" target="_blank">
+                        <img style="height:400px;width:350px;" class="img-responsive"
+                             src="{% static "images/pre1.jpg" %}" alt="">
+                    </a>
 
-                        <div class="carousel-caption">
-                            <h3>Dramatically Engage</h3>
-
-                            <p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
-                        </div>
                     </div>
                     <div class="item">
-                        <a href="#">
-                            <img class="img-responsive" src="holder.js/400x300?bg=FF8C00&text=Image%202" alt="">
-                        </a>
+                        <a href="{% static "images/pre2.jpg" %}" target="_blank">
+                        <img style="height:400px;width:350px;" class="img-responsive"
+                             src="{% static "images/pre2.jpg" %}" alt="">
+                             </a>
 
-                        <div class="carousel-caption">
-                            <h3>Efficiently Unleash</h3>
-
-                            <p>Dramatically maintain clicks-and-mortar solutions without functional solutions.</p>
-                        </div>
                     </div>
                     <div class="item">
-                        <a href="#">
-                            <img class="img-responsive" src="holder.js/400x300?bg=FF8C00&text=Image%203" alt="">
+                        <a href="{% static "images/pre3.jpg" %}" target="_blank">
+                        <img style="height:400px;width:350px;" class="img-responsive"
+                             src="{% static "images/pre3.jpg" %}" alt="">
                         </a>
 
-                        <div class="carousel-caption">
-                            <h3>Proactively Pontificate</h3>
-
-                            <p>Holistically pontificate installed base portals after maintainable products.</p>
-                        </div>
                     </div>
+                    <div class="item">
+                        <a href="{% static "images/pre4.jpg" %}" target="_blank">
+                        <img style="height:400px;width:350px;" class="img-responsive"
+                             src="{% static "images/pre4.jpg" %}" alt="">
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href="{% static "images/pre5.jpg" %}" target="_blank">
+                        <img style="height:400px;width:350px;" class="img-responsive"
+                             src="{% static "images/pre5.jpg" %}" alt="">
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <a href="{% static "images/pre6.jpg" %}" target="_blank">
+                        <img style="height:400px;width:350px;" class="img-responsive"
+                             src="{% static "images/pre6.jpg" %}" alt="">
+                        </a>
+                    </div>
+
                 </div>
                 <a class="left carousel-control" href="#side-carousel" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -231,6 +194,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+
 
         </div><!--/Right Column -->
 

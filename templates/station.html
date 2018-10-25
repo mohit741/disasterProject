@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+
+        <!-- Left Column -->
+        <div class="col-sm-3">
+
+            <!-- List-Group Panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title" style="font-size:30px;"><span class="glyphicon glyphicon-random"
+                                                                          style="margin-right:30px;"></span>Floods</h1>
+                </div>
+                <div class="list-group">
+                    <a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
+                    <a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
+                </div>
+            </div>
+
+            <!-- Text Panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-cloud"></span>
+                        Current Weather ({{ sname }})
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="list-group" style="color: dodgerblue;">
+                            <div class="form-row">
+                                <h4 style="display: inline-block; padding-right: 35px;">
+                                    Temperature</h4>{{ winfo.main.temp }} &#8451
+                            </div>
+                            <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">Rainfall</h4>
+                                {% if data.winfo.rain %}
+                                    {% for key, value in data.winfo.rain %}
+                                        {{ value }}
+                                    {% endfor %}
+                                {% else %}Nil{% endif %}
+                            </div>
+                            <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">
+                                Clouds</h4>{{ winfo.clouds.all }} %
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title"><span class="glyphicon glyphicon-info-sign"></span> Information</h1>
+                </div>
+
+                <div class="panel-body">
+                    <p>In India, Bangladesh and China, flood diversion areas are rural areas that are deliberately
+                        flooded in emergencies in order to protect cities.
+
+                        The consequences of deforestation and changing land use on the risk and severity of flooding are
+                        subjects of discussion. In assessing the impacts of Himalayan deforestation on the
+                        Ganges-Brahmaputra Lowlands, it was found that forests would not have prevented or significantly
+                        reduced flooding in the case of an extreme weather event.However, more general or overview
+                        studies agree on the negative impacts that deforestation has on flood safety - and the positive
+                        effects of wise land use and reforestation.
+                    </p>
+
+                    <p>
+                        <a class="btn btn-default" href="https://en.wikipedia.org/wiki/Flood_control">More</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Text Panel -->
+
+        </div><!--/Left Column-->
+
+
+        <!-- Center Column -->
+        <div class="col-sm-6">
+
+            <!-- Alert -->
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <strong>Stations: </strong> Warning will be issued when current level crosses warning level as shown in
+                the hydrograph.
+            </div>
+
+            <!-- Articles -->
+            <div class="col-sm-12">
+                <h3> Station : {{ sname }}, {{ state }}</h3>
+                <h4> Hydrograph : This will be updated periodically and it will show current levels.</h4>
+                <br>
+
+                <div id="station_img">
+                    <img src="{% static imgpath|safe %} " style="height: 600px; width: 600px; background-color: white;">
+                </div>
+                <br>
+            </div>
+        </div><!--/Center Column-->
+
+
+        <!-- Right Column -->
+        <div class="col-sm-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                        About Hydrographs
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <p>A hydrograph is a graph showing the rate of flow (discharge) versus time past a specific point in
+                        a river, channel, or conduit carrying flow. The rate of flow is typically expressed in cubic
+                        meters or cubic feet per second (cms or cfs). A hydrograph may be used to show how the water
+                        flow in a drainage basin (particularly river runoff) responds to a period of rain.</p>
+                </div>
+            </div>
+            <!-- Progress Bars -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                        Color Codes
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="progress" style="color: yellow;">
+                        <div class="progress-bar" style="color:black; width:100%; background-color: yellow;"
+                             role="progressbar" aria-valuenow="100"
+                             aria-valuemin="0" aria-valuemax="100">
+                            Warning level
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80"
+                             aria-valuemin="0" aria-valuemax="100"
+                             style="width:100%; color: white; background-color: darkblue">
+                            Current level
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="45"
+                             aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                            Danger level
+                        </div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="35"
+                             aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                            Highest Flood level
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/Right Column -->
+
+    </div><!--/container-fluid-->
+{% endblock %}

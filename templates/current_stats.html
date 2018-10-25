@@ -1,66 +1,94 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="container-fluid">
+    <div class="container-fluid">
 
-		<!-- Left Column -->
-		<div class="col-sm-3">
+        <!-- Left Column -->
+        <div class="col-sm-3">
 
-			<!-- List-Group Panel -->
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h1 class="panel-title" style="font-size:30px;"><span class="glyphicon glyphicon-random" style="margin-right:30px;"></span>Floods</h1>
-				</div>
-				<div class="list-group">
-					<a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
-					<a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
-				</div>
-			</div>
+            <!-- List-Group Panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title" style="font-size:30px;"><span class="glyphicon glyphicon-random"
+                                                                          style="margin-right:30px;"></span>Floods</h1>
+                </div>
+                <div class="list-group">
+                    <a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
+                    <a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
+                </div>
+            </div>
 
-			<!-- Text Panel -->
-            
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h1 class="panel-title"><span class="glyphicon glyphicon-cog"></span> Dramatically Engage</h1>
-				</div>
+            <!-- Text Panel -->
+            <a href="{% static 'images/forest.jpg' %}" target="_blank">
+            <img src="{% static 'images/forest.jpg' %}" style="height: 400px; width: 300px;">
+            </a>
+            <br>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>Forests the world over, have long been associated with helping to reduce flooding. Most flooding
+                        disasters have been partly blamed on the effects of deforestation.
 
-				<div class="panel-body">
-					<p>Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.</p>
-					<p><button class="btn btn-default">Engage</button></p>
-				</div>
-			</div>
+                        However, the emerging view amongst forest hydrologists is that forestry in general probably has
+                        a relatively limited role to play in reducing major floods.</p>
 
-			<!-- Text Panel -->
-				
-		</div><!--/Left Column-->
-  
-  
-		<!-- Center Column -->
-		<div class="col-sm-2">
-		
-			<!-- Articles -->
-			<div class="row">
+                    <p>
+                        <a class="btn btn-default" href="https://www.forestresearch.gov.uk/research/forest-hydrology/can-forestry-reduce-flooding/">More</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Text Panel -->
+
+        </div><!--/Left Column-->
+
+
+        <!-- Center Column -->
+        <div class="col-sm-5">
+
+            <div class="row">
+                <img src="{% static 'images/India_flood_zone_map.png' %}"
+                     style="height: 600px; width: 500px; background-color: white;">
+            </div>
+            <!-- Articles -->
+            <br>
+
+            <div class="row"><h3>Forests conditions </h3></div>
+            <br>
+
+            <div class="row">
                 <span>
-                <iframe width="670" height="490" frameborder="0" src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeLoss"></iframe>
-                <iframe width="315" height="460" frameborder="0" src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeCover"></iframe>
+                <iframe width="670" height="490" frameborder="0"
+                        src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeLoss"></iframe>
+                <iframe width="315" height="460" frameborder="0"
+                        src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeCover"></iframe>
 			    </span>
             </div>
-			<hr>
-			<div class="row">
-				<article class="col-xs-12">
-					<h2>Proactively Envisioned</h2>
-					<p>Seamlessly visualize quality intellectual capital without superior collaboration and idea-sharing. Holistically pontificate installed base portals after maintainable products. Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
-					<p><button class="btn btn-default">Read More</button></p>
-					<p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
-					<ul class="list-inline">
-						<li><a href="#">Yesterday</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-comment"></span> 21 Comments</a></li>
-						<li><a href="#"><span class="glyphicon glyphicon-share"></span> 36 Shares</a></li>
-					</ul>
-				</article>
-			</div>
-			<hr>
-		</div><!--/Center Column-->
+            <hr>
+            <div class="row">
+                <article class="col-xs-12">
+                    <h2>Proactively Envisioned</h2>
 
-	</div><!--/container-fluid-->
+                    <p>Seamlessly visualize quality intellectual capital without superior collaboration and
+                        idea-sharing. Holistically pontificate installed base portals after maintainable products.
+                        Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
+
+                    <p>
+                        <button class="btn btn-default">Read More</button>
+                    </p>
+                    <p class="pull-right"><span class="label label-default">keyword</span> <span
+                            class="label label-default">tag</span> <span class="label label-default">post</span></p>
+                    <ul class="list-inline">
+                        <li><a href="#">Yesterday</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-comment"></span> 21 Comments</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-share"></span> 36 Shares</a></li>
+                    </ul>
+                </article>
+            </div>
+            <hr>
+        </div><!--/Center Column-->
+        <div class="col-sm-4">
+            <!-- Progress Bars -->
+            <img src="{% static 'images/deaths.jpg' %}" style="height: 400px; width: 400px;">
+        </div><!--/Right Column -->
+    </div><!--/container-fluid-->
 {% endblock %}

@@ -10,9 +10,14 @@ from .forms import EmailSubForm
 # Utility functions
 # Weather widget
 def get_weather_info(place):
-    # url = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&units=metric&appid=aa1e682c3c12647a0b9f91aacd0397cf'
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=metric&appid=aa1e682c3c12647a0b9f91aacd0397cf'
     city_weather = requests.get(url.format(place)).json()
+    return city_weather
+
+
+def get_weather_info_lat_lon(lat, lon):
+    url = 'http://api.openweathermap.org/data/2.5/weather?lat={}&lon={}&units=metric&appid=aa1e682c3c12647a0b9f91aacd0397cf'
+    city_weather = requests.get(url.format(lat, lon)).json()
     return city_weather
 
 
@@ -29,14 +34,10 @@ def get_warning():
 
 
 # Get dam list
-def get_dams(state):
-    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/dams_zones.json')
-    dams = json.load(open(fp))
-    try:
-        dlist = dams[state]
-    except KeyError:
-        dlist = []
-    return dlist
+def get_stations(state):
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + state + '_geo.json')
+    stations = json.load(open(fp))
+    return stations
 
 
 # Home
@@ -85,12 +86,43 @@ def state_info(request, state):
         state = 'Tamil Nadu'
     elif state == 'HP':
         state = 'Himachal Pradesh'
+    elif state == 'UP':
+        state = 'Uttar Pradesh'
     data = dict()
-    data['winfo'] = get_weather_info(state)
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/capitals.json')
+    capitals = json.load(open(fp))
+    data['winfo'] = get_weather_info(capitals[state])
     print(data['winfo'])
-    dams = get_dams(state)
-    return render(request, 'state_stats.html', {'data': data, 'dams': dams, 'state': state})
+    stations = get_stations(state)
+    return render(request, 'state_stats.html',
+                  {'data': data, 'stations': stations, 'state': state, 'city': capitals[state]})
+
+
+def stations_view(request, state, code):
+    if state == 'JandK':
+        state = 'Jammu and Kashmir'
+    elif state == 'WB':
+        state = 'West Bengal'
+    elif state == 'AP':
+        state = 'Andhra Pradesh'
+    elif state == 'MP':
+        state = 'Madhya Pradesh'
+    elif state == 'TN':
+        state = 'Tamil Nadu'
+    elif state == 'HP':
+        state = 'Himachal Pradesh'
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + state + '_geocoded.json')
+    d = json.load(open(fp))
+    path = str(state + '/' + d[int(code)]['name'])
+    imgpath = 'images/{}.png'.format(path)
+    sname = d[int(code)]['name']
+    winfo = get_weather_info_lat_lon(d[int(code)]['lat'], d[int(code)]['lon'])
+    return render(request, 'station.html', {'imgpath': imgpath, 'sname': sname, 'winfo': winfo, 'state': state})
 
 
 def predict(request):
     return render(request, 'flood_predictions.html')
+
+
+def about(request):
+    return render(request, 'about.html')

@@ -1,0 +1,20 @@
+
+	 <option value="">- Select value -</option>
+	 <option value="006SHD__Barshani__Base">Barshani</option>
+	 <option value="IBO-1-060-0546__Ghaluwal__Base">Ghaluwal</option>
+	 <option value="007SHD__Hanuman Chetty__Base">Hanuman Chetty</option>
+	 <option value="007-UYDDEL__Jateon Barrage__Base">Jateon Barrage</option>
+	 <option value="004SHD__KOTHI__Base">KOTHI</option>
+	 <option value="IBO-1-059-0545__Khab__Base">Khab</option>
+	 <option value="002-SHDSIM(a)__MOORANG__Base">MOORANG</option>
+	 <option value="003-SHDSIM__NATHPA__Base">NATHPA</option>
+	 <option value="005-SHDSIM__PANDOA__Base">PANDOA</option>
+	 <option value="002-SHDSIM__POWARI__Base">POWARI</option>
+	 <option value="008-UYDDEL__Paonta__Level">Paonta</option>
+	 <option value="004-SHDSIM__RAMPUR(Shimla)__Base">RAMPUR(Shimla)</option>
+	 <option value="IBO-2-062-0548__Ropa__Base">Ropa</option>
+	 <option value="IBO-2-063-0549__Sangla__Base">Sangla</option>
+	 <option value="IBO-1-058-0544__Shalkhar__Base">Shalkhar</option>
+	 <option value="001-SHDSIM__TITANG__Base">TITANG</option>
+	 <option value="006-UYDDEL__Yaswant Nagar__Base">Yaswant Nagar</option>
+ 

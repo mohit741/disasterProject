@@ -1,0 +1,36 @@
+<select id="stationName" name="stationName">
+	 <option value="">- Select value -</option>
+	 <option value="028-MAHGAND __Abu Road __Level">Abu Road </option>
+	 <option value="017-CDJAPR__Aklera__Base">Aklera</option>
+	 <option value="002-MAHGAND__Anas PH-II__Base">Anas PH-II</option>
+	 <option value="010-CDJAPR__Baranwada__Base">Baranwada</option>
+	 <option value="015-CDJAPR__Barod__Base">Barod</option>
+	 <option value="008-CDJAPR__Bigod__Base">Bigod</option>
+	 <option value="0022-cdjaipur__Bisalpur Dam__Inflow">Bisalpur Dam</option>
+	 <option value="014-CDJAPR__Chittorgarh__Base">Chittorgarh</option>
+	 <option value="003-MAHGAND__Dhariawad__Base">Dhariawad</option>
+	 <option value="003-LYDAGRa__Dholpur__Base">Dholpur</option>
+	 <option value="008__Duplicate Old Bigod__Base">Duplicate Old Bigod</option>
+	 <option value="042CDJAPR__Gambhiri Dam__Inflow">Gambhiri Dam</option>
+	 <option value="038-CDJAPR__Kalisindh Dam__Inflow">Kalisindh Dam</option>
+	 <option value="016-CDJAPR__Khatoli__Base">Khatoli</option>
+	 <option value="043-CDJAPR__Kota Barrage__Level">Kota Barrage</option>
+	 <option value="005-MAHGAND__Mahi Dam__Inflow">Mahi Dam</option>
+	 <option value="013-CDJAPR__Manderial__Base">Manderial</option>
+	 <option value="040-MAHGAND__Mount Abu__Base">Mount Abu</option>
+	 <option value="006-MAHGAND__Paderdibadi__Base">Paderdibadi</option>
+	 <option value="012-CDJAPR__Pali__Base">Pali</option>
+	 <option value="041-CDJAPR__Panchana Dam__Inflow">Panchana Dam</option>
+	 <option value="040-CDJAPR__Parwan pick-up Weir__Inflow">Parwan pick-up Weir</option>
+	 <option value="037-CDJAPR__Parwati Pick- up weir__Inflow">Parwati Pick- up weir</option>
+	 <option value="012-MAHGAND__Rangeli__Base">Rangeli</option>
+	 <option value="018-CDJAPR__Salavad__Base">Salavad</option>
+	 <option value="021-CDJAPR__Sangod__Base">Sangod</option>
+	 <option value="022-MAHGAND __Sei Dam __Base">Sei Dam </option>
+	 <option value="011-MAHGAND__Somkamla Amba Dam__Inflow">Somkamla Amba Dam</option>
+	 <option value="026MAHGAND__Swaroopganj__Base">Swaroopganj</option>
+	 <option value="009-CDJAPR__Tonk__Base">Tonk</option>
+	 <option value="010213ub3__amarpura__Base">amarpura</option>
+	 <option value="010213ua3__khandiowari__Base">khandiowari</option>
+	 <option value="010213ub1__sohagpura__Base">sohagpura</option>
+ </select>

@@ -1,0 +1,31 @@
+<html>
+<select id="Gujarat">
+	 <option value="033-MAHGAND __Bhakudar __Base">Bhakudar </option>
+	 <option value="004-TDSURAT__Bharuch__Level">Bharuch</option>
+	 <option value="001-MAHGAND__Chakaliya__Base">Chakaliya</option>
+	 <option value="027-MAHGAND __Chitrasani __Base">Chitrasani </option>
+	 <option value="022-TDSURAT__GHALA__Base">GHALA</option>
+	 <option value="034MAHGAND__Ganod__Base">Ganod</option>
+	 <option value="003-TDSURAT__Garudeshwar__Level">Garudeshwar</option>
+	 <option value="037MAHGAND__Gungan__Base">Gungan</option>
+	 <option value="017-MAHGAND__Harnav Weir__Base">Harnav Weir</option>
+	 <option value="013-MAHGAND__Hathmati Weir__Base">Hathmati Weir</option>
+	 <option value="007-MAHGAND__Kadana Dam__Inflow">Kadana Dam</option>
+	 <option value="032-MAHGAND __Kamalpur __Base">Kamalpur </option>
+	 <option value="009-MAHGAND__Khanpur__Base">Khanpur</option>
+	 <option value="039MAHGAND__Lowara__Base">Lowara</option>
+	 <option value="028-TDSURAT__MADHUBAN DAM__Inflow">MADHUBAN DAM</option>
+	 <option value="029-TDSURAT__NANIPALSAN__Base">NANIPALSAN</option>
+	 <option value="010-MAHGAND__Panam Dam__Inflow">Panam Dam</option>
+	 <option value="024MAHGAND__Ratanpur__Base">Ratanpur</option>
+	 <option value="029-MAHGAND __Sarotry __Base">Sarotry </option>
+	 <option value="020-MAHGAND__Subhash Bridge__Level">Subhash Bridge</option>
+	 <option value="023-TDSURAT__Surat__Level">Surat</option>
+	 <option value="021-TDSURAT__Ukai Dam__Inflow">Ukai Dam</option>
+	 <option value="0102009002__Una__Base">Una</option>
+	 <option value="031-TDSURAT__VAPI__Level">VAPI</option>
+	 <option value="021MAHGAND__Vautha__Base">Vautha</option>
+	 <option value="008-MAHGAND__Wanakbori__Level">Wanakbori</option>
+	 <option value="014-MAHGAND__Watrak Dam__Base">Watrak Dam</option>
+ </select>
+</html>

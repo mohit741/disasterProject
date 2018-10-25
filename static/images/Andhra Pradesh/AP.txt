@@ -1,0 +1,44 @@
+<html>
+<select id="Andhra Pradesh">
+	 <option value="056-erdbwn__ NARAYANPURAM ANICUT__Inflow"> NARAYANPURAM ANICUT</option>
+	 <option value="041-erdbwn__ANAKAPALLI__Base">ANAKAPALLI</option>
+	 <option value="008-HYDCHENNAI__Alladupalli__Base">Alladupalli</option>
+	 <option value="006-hydchennai__Annamayya Project__Base">Annamayya Project</option>
+	 <option value="032-LGDHYD__Atreyapuram __Level">Atreyapuram </option>
+	 <option value="038-LKDHYD__Avanigadda__Level">Avanigadda</option>
+	 <option value="014-lkdhyd__Bawapuram__Base">Bawapuram</option>
+	 <option value="001-HYDCHENNAI__Chennur__Base">Chennur</option>
+	 <option value="030-LGDHYD__Chinturu (Tallagudem/Kummuru)__Level">Chinturu</option>
+	 <option value="0029-LKDHYD__DR KLRS Pulichintala Dam__Inflow">DR KLRS Pulichintala Dam</option>
+	 <option value="028-LGDHYD__Dowlaiswaram(State Gov. Site)__Level">Dowlaiswaram(State Gov. Site)</option>
+	 <option value="027-LGDHYD__GodavariRlyBridge(Rajahmundry)__Level">GodavariRlyBridge(Rajahmundry)</option>
+	 <option value="037-ERDBWN__Gotta Barrage__Inflow">Gotta Barrage</option>
+	 <option value="031-LGDHYD__Indirasagar Project(Polavaram)__Inflow">Indirasagar Project(Polavaram)</option>
+	 <option value="KATRAGADDA__KATRAGADDA__Base">KATRAGADDA</option>
+	 <option value="010-HYDCHENNAI__Kamalapuram__Base">Kamalapuram</option>
+	 <option value="021-LKDHYD__Keesara__Base">Keesara</option>
+	 <option value="024-LGDHYD__Kunavaram__Level">Kunavaram</option>
+	 <option value="037-LKDHYD__Kurnool Town__Level">Kurnool Town</option>
+	 <option value="047-ERDBWN__MADDUVALASA__Inflow">MADDUVALASA</option>
+	 <option value="013-lkdhyd__Mantralayam__Level">Mantralayam</option>
+	 <option value="030-LKDHYD__Melaganur__Base">Melaganur</option>
+	 <option value="012-HYDCHENNAI__Naidupet__Base">Naidupet</option>
+	 <option value="028-HYDCHENNAI__Nandalur__Base">Nandalur</option>
+	 <option value="003-hydchennai__Nandipalli__Base">Nandipalli</option>
+	 <option value="005-hydchennai__Nellore Anicut__Level">Nellore Anicut</option>
+	 <option value="002-HYDCHENNAI__Nellore CWC__Base">Nellore CWC</option>
+	 <option value="023-LKDHYD__Paleru Bridge__Base">Paleru Bridge</option>
+	 <option value="020-LKDHYD__Polampalli__Base">Polampalli</option>
+	 <option value="026-lgdhyd__Polavaram__Inflow">Polavaram</option>
+	 <option value="024-LKDHYD__Prakasam Barrage__Inflow">Prakasam Barrage</option>
+	 <option value="59__Rajahmundry__Level">Rajahmundry</option>
+	 <option value="009-hydchennai__Singavaram__Base">Singavaram</option>
+	 <option value="004-hydchennai__Somasila  Dam__Inflow">Somasila  Dam</option>
+	 <option value="040-erdbwn__Srikakulam__Level">Srikakulam</option>
+	 <option value="016-lkdhyd__Srisailam __Inflow">Srisailam </option>
+	 <option value="013-HYDCHENNAI__Sulurpet__Base">Sulurpet</option>
+	 <option value="0030-LKDHYD__Sunkesula Barrage__Inflow">Sunkesula Barrage</option>
+	 <option value="007-HYDCHENNAI__Tadipatri__Base">Tadipatri</option>
+	 <option value="025-LKDHYD__Vijayawada__Base">Vijayawada</option>
+ </select>
+</html>

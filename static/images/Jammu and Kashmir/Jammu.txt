@@ -1,0 +1,7 @@
+
+	 <option value="">- Select value -</option>
+	 <option value="001-chejmu__Khanabal__Base">Khanabal</option>
+	 <option value="005-jhelum__Rammunshibagh (near Srinagar)__Level">Rammunshibagh (near Srinagar)</option>
+	 <option value="006-chejmu__Safapora__Level">Safapora</option>
+	 <option value="002-jhelum__Sangam__Level">Sangam</option>
+ 
