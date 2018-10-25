@@ -58,6 +58,7 @@ def stats(request):
 def undev(request):
     return render(request, 'undev.html')
 
+
 def subscribe(request):
     if request.method == 'POST':
         form = EmailSubForm(request.POST)
@@ -69,7 +70,6 @@ def subscribe(request):
     else:
         form = EmailSubForm()
         return render(request, 'subscribe.html', {'form': form})
-
 
 
 def state_info(request, state):

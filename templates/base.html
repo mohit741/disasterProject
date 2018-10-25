@@ -10,9 +10,9 @@
     <title>Let's cope with disaster </title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
-	
+
     <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
-	<link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/custom.css" %}"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,93 +23,97 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <!-- Logo and responsive toggle -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand"><span class="glyphicon glyphicon-globe"></span> Dark Phoenix's</a>
-            </div>
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="{% url 'flood_home' %}">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="{% url 'flood_home' %}">Floods</a></li>
-							<li><a href="{% url 'undev' %}">Earthquakes</a></li>
-							<li><a href="{% url 'undev' %}">Cyclones</a></li>
-							<li><a href="{% url 'undev' %}">Forest Fires</a></li>
-						</ul>
-					</li>
-                    <li>
-                        <a id="subs" class="btn-warning fa-border" href="{% url 'subscribe' %}">Subscribe</a>
-                    </li>
-                </ul>
-
-            </div>
-            <!-- /.navbar-collapse -->
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <!-- Logo and responsive toggle -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand"><span class="glyphicon glyphicon-globe"></span> Dark Phoenix's</a>
         </div>
-        <!-- /.container -->
-    </nav>
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{% url 'flood_home' %}">Home</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Categories <span class="caret"></span></a>
+                    <ul class="dropdown-menu" aria-labelledby="about-us">
+                        <li><a href="{% url 'flood_home' %}">Floods</a></li>
+                        <li><a href="{% url 'undev' %}">Earthquakes</a></li>
+                        <li><a href="{% url 'undev' %}">Cyclones</a></li>
+                        <li><a href="{% url 'undev' %}">Forest Fires</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="subs" class="btn-warning fa-border" href="{% url 'subscribe' %}">Subscribe</a>
+                </li>
+            </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 <div class="row">
-    <div id="logo" style="margin-left:3%;margin-top:-8px;margin-bottom:5px;width=40%;">
-		<img src="{% static "images/logo.png" %}" alt="Lets cope with disaster" style="height:150px;">
+    <div id="logo" style="margin-left:3%;margin-top:-8px;margin-bottom:5px;width:40%;">
+        <img src="{% static "images/logo.png" %}" alt="Lets cope with disaster" style="height:150px;">
     </div>
     <div id="banner" style="margin-top:-150px;margin-bottom:5px;">
-		<img src="{% static "images/banner.jpeg" %}" alt="Flood" style="height:150px; width:73%; margin-left:24.6%;">
+        <img src="{% static "images/banner.jpeg" %}" alt="Flood" style="height:150px; width:73%; margin-left:24.6%;">
     </div>
 </div>
-    <hr>
-	
+<hr>
+
 <div id="content">
     {% block content %}
 
     {% endblock content %}
-</div>	
-	
+</div>
+
 <footer>
-		<div class="footer-blurb">
-			<div class="container">
-				<div class="row">
+    <div class="footer-blurb">
+        <div class="container">
+            <div class="row">
 
-				</div>
-				<!-- /.row -->	
-			</div>
+            </div>
+            <!-- /.row -->
         </div>
-        
-        <div class="small-print">
-        	<div class="container">
-        		<p><a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Contact</a></p>
-        		<p>Copyright &copy; The Dark Phoenix team </p>
-        	</div>
-        </div>
-	</footer>
+    </div>
 
-	
-    <!-- jQuery -->
-	<script type="text/javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
-    <!-- Bootstrap Core JavaScript -->
-	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-	
-	<!-- IE10 viewport bug workaround -->
-	<script type="text/javascript" src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
-	
-	<!-- Placeholder Images -->
-	<script type="text/javascript" src="{% static 'js/holder.min.js' %}"></script>
-	
+    <div class="small-print">
+        <div class="container">
+            <p><a href="#">Terms &amp; Conditions</a> | <a
+                    href="https://www.freeprivacypolicy.com/privacy/view/6f58f71fb06019b0dad46f3695987a1f">Privacy
+                Policy</a> | <a href="#">Contact</a></p>
+
+            <p>Copyright &copy; The Dark Phoenix team </p>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
+<!-- Bootstrap Core JavaScript -->
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<!-- IE10 viewport bug workaround -->
+<script type="text/javascript" src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+<!-- Placeholder Images -->
+<script type="text/javascript" src="{% static 'js/holder.min.js' %}"></script>
+
 </body>
 
 </html>
