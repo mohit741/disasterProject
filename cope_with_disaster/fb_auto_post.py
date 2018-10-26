@@ -7,7 +7,6 @@ from cope_with_disaster.models import *
 from apscheduler.schedulers.background import BackgroundScheduler
 from django_apscheduler.jobstores import DjangoJobStore, register_events, register_job
 from django.core.mail import send_mail
-from django.template.loader import get_template
 
 
 DEFAULT_FROM_EMAIL = 'admin@copingwithdisaster.azurewebsites.net'
@@ -27,7 +26,7 @@ def post_warning():
         l = list()
         for users in User.objects.all():
             l.append(str(users))
-        msg = msg.format('demo', 'high')
+        msg = msg.format('FAKE AREA', 'high')
         send_mail('Flood Warning : Urgent', msg, DEFAULT_FROM_EMAIL, l, fail_silently=False)
         graph = facebook.GraphAPI(page_access_token)
         graph.put_object(parent_object='me', connection_name="feed", message=msg,

@@ -5,6 +5,7 @@ from cope_with_disaster.fb_auto_post import post_warning
 import requests
 import json
 from .forms import EmailSubForm
+from .models import Variable
 
 
 # Utility functions
@@ -30,7 +31,11 @@ def get_danger_zones():
 
 # Warning from predictions
 def get_warning():
-    pass
+    flag = Variable.objects.filter(name='FAKE_WARNING').first().info
+    if flag == 'true':
+        return True
+    else:
+        return False
 
 
 # Get dam list
@@ -45,9 +50,9 @@ def home(request):
     data = dict()
     # city = City.objects.filter(name='New Delhi').first()
     data['winfo'] = get_weather_info('New Delhi')
-    data['test'] = post_warning()
-    print(data['winfo'])
-    # data['warning'] = get_warning()
+    if get_warning():
+        data['warn'] = 'There is a report of flood in FAKE AREA, stay alert and connected with us for more information'
+
     zones = get_danger_zones()
     return render(request, 'flood_home.html', {'data': data, 'zones': zones})
 
