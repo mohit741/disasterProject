@@ -20,8 +20,8 @@ scheduler.add_jobstore(DjangoJobStore(), "default")
 # Triggered in case of warning
 def post_warning():
     page_access_token = Variable.objects.filter(name='FB_KEY').first().info
-    flag = Variable.objects.filter(name='FAKE_WARNING').first().info
-    msg = Variable.objects.filter(name='MSG').first().info
+    flag = False # Variable.objects.filter(name='FAKE_WARNING').first().info
+    msg = '' # Variable.objects.filter(name='MSG').first().info
     if flag == 'true':
         l = list()
         for users in User.objects.all():

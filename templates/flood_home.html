@@ -13,7 +13,8 @@
                                                                           style="margin-right:30px;"></span>Floods</h1>
                 </div>
                 <div class="list-group">
-                    <a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
+                    <a href="{% url 'current_stats' %}" class="list-group-item">Mark my location</a>
+                    <a href="{% url 'current_stats' %}" class="list-group-item">Rescue Team/ Volunteers</a>
                     <a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
                 </div>
             </div>
@@ -59,11 +60,7 @@
                         including the Mumbai floods of 2006 and 2017. During 1901-2015, there has been a three-fold rise
                         in widespread extreme rainfall events, across central and northern India – Gujarat, Maharashtra,
                         Madhya Pradesh, Chhattisgarh, Telangana, Odisha, Jharkhand, Assam and parts of Western Ghats –
-                        Goa, north Karnataka and South Kerala. The rising number of extreme rain events are
-                        attributed to an increase in the fluctuations of the monsoon westerly winds, due to increased
-                        warming in the Arabian Sea. This results in occasional surges of moisture transport from the
-                        Arabian Sea to the subcontinent, resulting in heavy rains lasting for 2–3 days, and spread over
-                        a region large enough to cause floods.
+                        Goa, north Karnataka and South Kerala.
                     </p>
 
                     <p>
@@ -92,7 +89,7 @@
             <h3>Major flood zones : </h3>
             <br>
 
-            <div class="row">
+            <div class="row" style="margin-left: 1%">
                 <div id="india_flood_map"></div>
                 <script>
                     var zones = {{ zones | safe }};
@@ -103,7 +100,6 @@
                 </script>
             </div>
             <br>
-            <hr>
         </div><!--/Center Column-->
 
 

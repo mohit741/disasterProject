@@ -68,8 +68,10 @@ def undev(request):
 def subscribe(request):
     if request.method == 'POST':
         form = EmailSubForm(request.POST)
+        print(form)
         if form.is_valid():
-            form.save()
+            x = form.save()
+            print(x)
             return redirect('/floods')
         else:
             return redirect('/subscribe', {'error': 'Error Occured '})
@@ -116,6 +118,8 @@ def stations_view(request, state, code):
         state = 'Tamil Nadu'
     elif state == 'HP':
         state = 'Himachal Pradesh'
+    elif state == 'UP':
+        state = 'Uttar Pradesh'
     fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + state + '_geocoded.json')
     d = json.load(open(fp))
     path = str(state + '/' + d[int(code)]['name'])

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Let's cope with disaster </title>
+    <title>Auxilior - We save lives </title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
 
@@ -19,16 +19,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
 <body>
 
 
-<div class="container-fluid" style="margin-bottom: 500px;">
+<div class="container-fluid" style="margin-bottom: 50px;">
     <div style="margin-left: 200px">
-        <h1> Enter your email to subscribe</h1>
+        <h1> Enter your details to subscribe</h1>
         <br>
-        <h4> You'll get periodic updates about floods forecasts. </h4>
+        <h4> You'll get periodic updates and warnings about disasters in your area. </h4>
         <br>
 
         <div class="row">
@@ -37,29 +36,81 @@
                     <fieldset>
                         <legend></legend>
 
-                            <div class="form-group has-errors text-danger" style="color: white; margin: 10px;">
-                                {{ error }}
-                            </div>
+                        <div class="form-group has-errors text-danger" style="color: white; margin: 10px;">
+                            {{ error }}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5 form-group">
+                                <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.email.id_for_label }}">{{ form.email.label_tag }}</label>
 
-                        {% for field in form %}
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" style="color: #31b0d5"
-                                       for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
-
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                     <div class="input-group">
-                                        {{ field }}
+                                        {{ form.email }}
                                     </div>
                                 </div>
                                 <div class="form-group has-errors text-danger small">
-                                    {{ field.errors }}
+                                    {{ form.email.errors }}
                                 </div>
                             </div>
-                        {% endfor %}
-                        <div class="form-group">
-                            <label class="col-md-4 control-label"></label>
+                            <div class="col-md-5 form-group">
+                                <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.phone.id_for_label }}">{{ form.phone.label_tag }}</label>
 
-                            <div class="col-md-4">
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        {{ form.phone }}
+                                    </div>
+                                </div>
+                                <div class="form-group has-errors text-danger small">
+                                    {{ form.phone.errors }}
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Your Location : </h3>
+
+                        <div class="row">
+                            <div class="col-md-5 form-group">
+                                <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.lon.id_for_label }}">{{ form.lon.label_tag }}</label>
+
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        {{ form.lon }}
+                                    </div>
+                                </div>
+                                <div class="form-group has-errors text-danger small">
+                                    {{ form.lon.errors }}
+                                </div>
+                            </div>
+                            <div class="col-md-5 form-group">
+                                <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.lat.id_for_label }}">{{ form.lat.label_tag }}</label>
+
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        {{ form.lat }}
+                                    </div>
+                                </div>
+                                <div class="form-group has-errors text-danger small">
+                                    {{ form.lat.errors }}
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-control col-lg-4" id="locator"
+                             style="width: 400px; height: 500px; margin-left: 20%"></div>
+                        <br>
+
+                        <div class="form-group" style="margin-left: 50%">
+                            <label class="col-md-6 control-label"></label>
+
+                            <div class="col-md-6">
                                 <button type="submit" class="btn btn-success">Submit</button>
                                 <a href="{% url 'subscribe' %}" class="btn btn-danger"
                                    style="margin-left:30px">Clear</a>
@@ -69,6 +120,9 @@
                         </div>
                     </fieldset>
                 </form>
+                <script src="{% static "js/subs.js" %}"></script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap"></script>
             </div>
         </div>
     </div>

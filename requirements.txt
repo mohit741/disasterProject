@@ -1,4 +1,4 @@
-Django==2.0.8
+Django
 django_tables2==1.19.0
 requests
 waitress==1.0.1
