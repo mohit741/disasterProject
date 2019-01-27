@@ -1,0 +1,182 @@
+
+.btn-group button {
+    border: 1px solid #171717; /* Green border */
+    color: #000000; /* White text */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 100%; /* Set a width if needed */
+    height: calc(100% / 7);
+    display: block; /* Make the buttons appear below each other */
+    font-size: large;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+}
+
+.btn-group button:focus {
+    outline: none;
+    /*Remove comments for accessibility*/
+    /*outline-color:#4F4;
+    outline-style:solid;
+    outline-width:1px;*/
+}
+
+.btn-group {
+    height: 100%;
+    width: 100%;
+    min-width: 30px;
+}
+
+.btn-group img {
+    height: 40%;
+}
+
+.btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #ee7a12;
+}
+
+.sidenav {
+    height: 70%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 44, 42, 0.95);
+    overflow-x: hidden;
+    transition: 0.5s;
+    margin-top: 12%;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #394b81;
+    display: block;
+    transition: 0.5s;
+}
+
+.sidenav a:hover:not(.closebtn) {
+    color: #5ab8f1;
+    background-color: #444;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 2em;
+    margin-left: 8%;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+body, html {
+    font-family: "Lato", sans-serif;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    /*overflow: hidden;*/
+}
+
+/*.sidenav left should match the width of #left*/
+#left {
+    float: left;
+    width: 10%;
+    height: 100%;
+}
+
+#center {
+    display: inline-block;
+    width: 70%;
+    height: 90%;
+}
+
+#right {
+    float: right;
+    width: 20%;
+    height: 90%;
+    margin-top:3%;
+}
+
+#map {
+    height: 90%;
+    width: 100%;
+}
+#subs {
+    border: 5px solid orange;
+    border-radius: 8px;
+    background-color: black;
+    color: orange;
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 600px;
+    margin-top: 5px;
+}
+#subs:hover {
+    background: #ff9800;
+    color: white;
+}
+footer {
+    height: 10%;
+    width: 100%;
+}
+.small-print {
+	background-color: #fff;
+	padding: 30px 0;
+}
+ul {
+    height: 3%;
+}
+
+.list-group {
+    height: 100%;
+}
+
+button.list-group-item {
+    height: calc(100% / 5);
+}
+
+button.list-group-item:focus {
+    outline: none;
+}
+
+.tab-content {
+    height: 95%;
+}
+
+.tab-pane {
+    background-color: #444444;
+    padding: 5px;
+    margin-top: -5%;
+}
+h3 {
+    margin: 1%;
+}
+.footer-blurb {
+    padding: 30px 0;
+    margin-top: 20px;
+    background-color: #eee;
+    color: black;
+}
+
+.footer-blurb-item {
+    padding: 20px;
+}
+#infotxt {
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    font-size: medium;
+    color: whitesmoke;
+}

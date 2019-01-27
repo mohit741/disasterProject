@@ -13,7 +13,12 @@
                                                                           style="margin-right:30px;"></span>Floods</h1>
                 </div>
                 <div class="list-group">
-                    <a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
+                    <a href="{% url 'current_stats' %}" class="list-group-item">Mark my location</a>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'volunteer' %}" class="list-group-item">Rescue Team/ Volunteers</a>
+                    {% else %}
+                        <a href="{% url 'control' %}" class="list-group-item">Control Center</a>
+                    {% endif %}
                     <a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
                 </div>
             </div>
@@ -54,27 +59,17 @@
             </div>
 
             <!-- Articles -->
-            <div class="row">
-                <div id="india_flood_map"></div>
+            <div class="row" style="margin-top:5%">
+                <div id="india_flood_map" style="margin-left: 3%"></div>
+                <script>
+                    var global_url = "{% url 'query' %}";
+                </script>
                 <script src="{% static "js/pred.js" %}"></script>
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap">
                 </script>
             </div>
-            <hr>
-            <div class="row">
-                <article class="col-xs-12">
-                    <h2>Forecasted Area</h2>
-                    <h4>City, State</h4>
-
-                    <p>Here, brief details of the place and current conditions will be shown </p>
-
-                    <p>
-                        <button class="btn btn-default">Read More</button>
-                    </p>
-                </article>
-            </div>
-            <hr>
+            <br>
         </div><!--/Center Column-->
 
 

@@ -1,11 +1,15 @@
 import os
+
+from django.http import JsonResponse
+
 from disasterProject.settings import BASE_DIR
 from django.shortcuts import render, redirect
 from cope_with_disaster.fb_auto_post import post_warning
 import requests
 import json
-from .forms import EmailSubForm
-from .models import Variable
+from .forms import EmailSubForm, UserForm, RegForm
+from .models import Variable, Rescuer
+from django.contrib.auth import login, authenticate, logout
 
 
 # Utility functions
@@ -56,6 +60,43 @@ def home(request):
     zones = get_danger_zones()
     return render(request, 'flood_home.html', {'data': data, 'zones': zones})
 
+def register_user(request):
+    if request.method == 'POST':
+        user_form = UserForm(request.POST)
+        dform = RegForm(request.POST)
+        if user_form.is_valid():
+            user_form.save()
+            username = user_form.cleaned_data.get('email')
+            raw_password = user_form.cleaned_data.get('password1')
+            user = authenticate(email=username, password=raw_password)
+            profile = Rescuer.objects.get(user=user)
+            dform = RegForm(request.POST, instance=profile)
+            dform.save()
+            login(request, user)
+            return redirect('/floods')
+    else:
+        user_form = UserForm()
+        dform = RegForm()
+    return render(request, 'register.html', {'user_form': user_form, 'dform': dform})
+
+
+def user_login(request):
+    err=''
+    if request.method=='POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/floods', {'user': user})
+        err = 'User credentials not valid!'
+        return render(request, 'login_user.html', {'err': err})
+    else:
+        return render(request, 'login_user.html', {'err': err})
+
+
+def register_query(request):
+    return render(request, 'volunteer.html')
 
 def stats(request):
     return render(request, 'current_stats.html')
@@ -133,5 +174,59 @@ def predict(request):
     return render(request, 'flood_predictions.html')
 
 
+def logout_user(request):
+    logout(request)
+    return redirect('/floods')
+
+
 def about(request):
     return render(request, 'about.html')
+
+
+def get_loc_stats(request):
+    lat = request.GET['lat']
+    lon = request.GET['lon']
+    print(lat+lon)
+    data = {'tweets':'0'}
+    return JsonResponse(data)
+
+def get_predicted_locations(request):
+    # fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'predicted_locations.json')
+    # data = json.load(open(fp))
+    pass
+
+
+def get_current_loc(request):
+    user = request.user
+    lat = float(Rescuer.objects.filter(user=user).first().lat)
+    lon = float(Rescuer.objects.filter(user=user).first().lon)
+    data = {'lat':lat, 'lon':lon}
+    return JsonResponse(data)
+
+def set_current_loc(request):
+    user = request.user
+    resc = Rescuer.objects.get(user=user)
+    print('Old',resc.lat)
+    resc.lat = float(request.GET['lat'])
+    resc.lon = float(request.GET['lon'])
+    resc.save()
+    return JsonResponse({'status':'sucess'})
+
+def control_center(request):
+    return render(request,'control.html')
+
+def get_offers_markers_pos(request):
+    data = {}
+    type = request.GET['type']
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'offers_pos.json')
+    d = json.load(open(fp))
+    data['loc_array'] = d[str(type)]
+    return JsonResponse(data)
+
+def get_requests_markers_pos(request):
+    data = {}
+    type = request.GET['type']
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'requests_pos.json')
+    d = json.load(open(fp))
+    data['loc_array'] = d[str(type)]
+    return JsonResponse(data)

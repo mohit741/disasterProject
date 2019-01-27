@@ -82,6 +82,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+AUTH_USER_MODEL = 'cope_with_disaster.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -113,6 +114,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+LOGIN_REDIRECT_URL = '/floods'
+LOGOUT_REDIRECT_URL = '/floods'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (

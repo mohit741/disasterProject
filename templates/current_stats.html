@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <div class="container-fluid">
+
+    <div class="container-fluid" style="margin-top:2%">
 
         <!-- Left Column -->
         <div class="col-sm-3">
@@ -13,16 +14,16 @@
                                                                           style="margin-right:30px;"></span>Floods</h1>
                 </div>
                 <div class="list-group">
-                    <a href="{% url 'current_stats' %}" class="list-group-item">Current stats</a>
+                    <a href="{% url 'current_stats' %}" class="list-group-item">Mark my location</a>
+                    {% if not user.is_authenticated %}
+                    <a href="{% url 'volunteer' %}" class="list-group-item">Rescue Team/ Volunteers</a>
+                    {% else %}
+                        <a href="{% url 'control' %}" class="list-group-item">Control Center</a>
+                    {% endif %}
                     <a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
                 </div>
             </div>
 
-            <!-- Text Panel -->
-            <a href="{% static 'images/forest.jpg' %}" target="_blank">
-            <img src="{% static 'images/forest.jpg' %}" style="height: 400px; width: 300px;">
-            </a>
-            <br>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <p>Forests the world over, have long been associated with helping to reduce flooding. Most flooding
@@ -32,7 +33,8 @@
                         a relatively limited role to play in reducing major floods.</p>
 
                     <p>
-                        <a class="btn btn-default" href="https://www.forestresearch.gov.uk/research/forest-hydrology/can-forestry-reduce-flooding/">More</a>
+                        <a class="btn btn-default"
+                           href="https://www.forestresearch.gov.uk/research/forest-hydrology/can-forestry-reduce-flooding/">More</a>
                     </p>
                 </div>
             </div>
@@ -44,51 +46,55 @@
 
         <!-- Center Column -->
         <div class="col-sm-5">
+                <div class="row" style="margin-left: 4%"><h4>Please mark your current location to see the condition there! </h4></div>
 
+            <br>
             <div class="row">
-                <img src="{% static 'images/India_flood_zone_map.png' %}"
-                     style="height: 600px; width: 500px; background-color: white;">
+                <div class="form-control col-lg-4" id="locator"
+                     style="width: 400px; height: 500px; margin-left: 7%"></div>
+                <br>
             </div>
+            <input type="hidden" id="lon" name="lon">
+            <input type="hidden" id="lat" name="lat">
+            <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+            <script>
+                var global_url = "{% url 'query' %}";
+                var save_url = "{% url 'saveloc' %}";
+            </script>
+            <script src="{% static "js/markOwn.js" %}"></script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap"></script>
             <!-- Articles -->
             <br>
-
-            <div class="row"><h3>Forests conditions </h3></div>
-            <br>
-
-            <div class="row">
-                <span>
-                <iframe width="670" height="490" frameborder="0"
-                        src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeLoss"></iframe>
-                <iframe width="315" height="460" frameborder="0"
-                        src="https://www.globalforestwatch.org/embed/dashboards/country/IND?widget=treeCover"></iframe>
-			    </span>
-            </div>
-            <hr>
-            <div class="row">
-                <article class="col-xs-12">
-                    <h2>Proactively Envisioned</h2>
-
-                    <p>Seamlessly visualize quality intellectual capital without superior collaboration and
-                        idea-sharing. Holistically pontificate installed base portals after maintainable products.
-                        Proactively envisioned multimedia based expertise and cross-media growth strategies.</p>
-
-                    <p>
-                        <button class="btn btn-default">Read More</button>
-                    </p>
-                    <p class="pull-right"><span class="label label-default">keyword</span> <span
-                            class="label label-default">tag</span> <span class="label label-default">post</span></p>
-                    <ul class="list-inline">
-                        <li><a href="#">Yesterday</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-comment"></span> 21 Comments</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-share"></span> 36 Shares</a></li>
-                    </ul>
-                </article>
-            </div>
-            <hr>
         </div><!--/Center Column-->
         <div class="col-sm-4">
-            <!-- Progress Bars -->
-            <img src="{% static 'images/deaths.jpg' %}" style="height: 400px; width: 400px;">
+            <div class="panel panel-info">
+                <div class="panel-heading" style="font-size: medium;">Current Stats</div>
+                <div class="panel-body">
+                    <img id="load" src="{% static 'images/ajax-loader.gif' %}">
+                    <div class="row">
+                        <h4 style="display: inline-block; margin-left: 10px">Location: </h4>
+                        <div id="loc"  style="width:50%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; font-size:1.3vw;color:rgb(96, 63, 208);display: inline; margin-left: -12%"> </div>
+                    </div>
+                     <div class="row">
+                        <h4 style="display: inline-block; margin-left: 10px">Reported Tweets: </h4>
+                        <h4 id="tweet"  style="color:#ff8b34;display: inline-block; margin-left: -10%"> </h4>
+                    </div>
+                    <div class="row">
+                        <h4 style="display: inline-block; margin-left: 10px">Reservoir Overflow Status: </h4>
+                        <h4 id="overflow"  style="color:dodgerblue;display: inline-block; margin-left: -10%"> </h4>
+                    </div>
+                    <div class="row">
+                        <h4 style="display: inline-block; margin-left: 10px">Safety Index: </h4>
+                        <h4 id="safe_index"  style="color:dodgerblue;display: inline-block; margin-left: -10%"> </h4>
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="row" style="margin-left: 1%; margin-top: 1%">
+                        <button id="save" onclick="saveLoc()" class="btn btn-success">Save this location</button>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
         </div><!--/Right Column -->
     </div><!--/container-fluid-->
 {% endblock %}

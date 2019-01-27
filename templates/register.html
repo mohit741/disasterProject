@@ -21,107 +21,113 @@
     <![endif]-->
 </head>
 <body>
-
-
-<div class="container-fluid" style="margin-bottom: 50px;">
-    <div id="logo" title="Auxilior means help in Latin" style="margin-left:3%;margin-top:-8px;margin-bottom:5px;width:25%;">
+    <div id="logo" title="Auxilior means help in Latin" style="margin-left:3%;margin-top:-8px;width:25%;">
         <a href="{% url 'flood_home' %}">
             <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:120px;">
         </a>
     </div>
-    <div style="margin-left: 200px">
-        <h1> Enter your details to subscribe</h1>
-        <br>
-        <h4> You'll get periodic updates and warnings about disasters in your area. </h4>
-        <br>
 
+<div class="container-fluid" style="margin-top:-40px;margin-bottom: 50px;">
+    <div style="margin-left: 200px"> 
+        <br>
+     <h1> Organisation/ Volunteer Registration </h1>
         <div class="row">
             <div class="col-md-10 ">
                 <form class="form-horizontal" method="POST">{% csrf_token %}
                     <fieldset>
-                        <legend></legend>
-
-                        <div class="form-group has-errors text-danger" style="color: white; margin: 10px;">
+                        <legend><h4>Please enter the following details</h4></legend>
+                        {% for error in user_form.non_field_errors %}
+                        <div class="form-group has-errors text-danger small">
                             {{ error }}
                         </div>
+                        {% endfor %}
+                        {% for field in user_form %}
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.phone.id_for_label }}">{{ field.label_tag }}</label>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                {{ field }}
+                                </div>
+                            </div>
+                             <div class="form-group has-errors text-danger small">
+                                    {{ field.errors }}
+                            </div>
+                        </div>
+                        {% endfor %}
+						<div class="form-group">
+                                <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.phone.id_for_label }}">{{ dform.name.label_tag }}</label>
+
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        {{ dform.name }}
+                                    </div>
+                                </div>
+                                <div class="form-group has-errors text-danger small">
+                                    {{ dform.name.errors }}
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-md-4 control-label"
+                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
+                                       for="{{ form.phone.id_for_label }}">{{ dform.phone.label_tag }}</label>
+
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        {{ dform.phone }}
+                                    </div>
+                                </div>
+                                <div class="form-group has-errors text-danger small">
+                                    {{ dform.phone.errors }}
+                                </div>
+                        </div>
+						<h3>Your Location : </h3>
+
                         <div class="row">
                             <div class="col-md-5 form-group">
                                 <label class="col-md-4 control-label"
                                        style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
-                                       for="{{ form.email.id_for_label }}">{{ form.email.label_tag }}</label>
+                                       for="{{ form.lon.id_for_label }}">{{ dform.lon.label_tag }}</label>
 
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        {{ form.email }}
+                                        {{ dform.lon }}
                                     </div>
                                 </div>
                                 <div class="form-group has-errors text-danger small">
-                                    {{ form.email.errors }}
+                                    {{ dform.lon.errors }}
                                 </div>
                             </div>
                             <div class="col-md-5 form-group">
                                 <label class="col-md-4 control-label"
                                        style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
-                                       for="{{ form.phone.id_for_label }}">{{ form.phone.label_tag }}</label>
+                                       for="{{ form.lat.id_for_label }}">{{ dform.lat.label_tag }}</label>
 
                                 <div class="col-md-8">
                                     <div class="input-group">
-                                        {{ form.phone }}
+                                        {{ dform.lat }}
                                     </div>
                                 </div>
                                 <div class="form-group has-errors text-danger small">
-                                    {{ form.phone.errors }}
+                                    {{ dform.lat.errors }}
                                 </div>
                             </div>
                         </div>
-                        <h3>Your Location : </h3>
-
-                        <div class="row">
-                            <div class="col-md-5 form-group">
-                                <label class="col-md-4 control-label"
-                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
-                                       for="{{ form.lon.id_for_label }}">{{ form.lon.label_tag }}</label>
-
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        {{ form.lon }}
-                                    </div>
-                                </div>
-                                <div class="form-group has-errors text-danger small">
-                                    {{ form.lon.errors }}
-                                </div>
-                            </div>
-                            <div class="col-md-5 form-group">
-                                <label class="col-md-4 control-label"
-                                       style="color: #31b0d5; font-family:Helvetica Neue,Helvetica,Arial,sans-serif;"
-                                       for="{{ form.lat.id_for_label }}">{{ form.lat.label_tag }}</label>
-
-                                <div class="col-md-8">
-                                    <div class="input-group">
-                                        {{ form.lat }}
-                                    </div>
-                                </div>
-                                <div class="form-group has-errors text-danger small">
-                                    {{ form.lat.errors }}
-                                </div>
-                            </div>
-                        </div>
-                        <br>
-
+						<br>
                         <div class="form-control col-lg-4" id="locator"
                              style="width: 400px; height: 500px; margin-left: 20%"></div>
                         <br>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label"></label>
 
-                        <div class="form-group" style="margin-left: 50%">
-                            <label class="col-md-6 control-label"></label>
-
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <button type="submit" class="btn btn-success">Submit</button>
-                                <a href="{% url 'subscribe' %}" class="btn btn-danger"
+                                <a href="{% url 'register' %}" class="btn btn-danger"
                                    style="margin-left:30px">Clear</a>
                             </div>
-                            <br>
-                            <br>
                         </div>
                     </fieldset>
                 </form>

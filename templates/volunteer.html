@@ -14,43 +14,8 @@
                 </div>
                 <div class="list-group">
                     <a href="{% url 'current_stats' %}" class="list-group-item">Mark my location</a>
-                    {% if not user.is_authenticated %}
-                    <a href="{% url 'volunteer' %}" class="list-group-item">Rescue Team/ Volunteers</a>
-                    {% else %}
-                        <a href="{% url 'control' %}" class="list-group-item">Control Center</a>
-                    {% endif %}
+                    <a href="{% url 'register' %}" class="list-group-item">Rescue Team/ Volunteers</a>
                     <a href="{% url 'flood_predictions' %}" class="list-group-item">Predictions</a>
-                </div>
-            </div>
-
-            <!-- Text Panel -->
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <span class="glyphicon glyphicon-cloud"></span>
-                        Current Weather (New Delhi)
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    <form>
-                        <div class="list-group" style="color: dodgerblue;">
-                            <div class="form-row">
-                                <h4 style="display: inline-block; padding-right: 35px;">
-                                    Temperature</h4>{{ data.winfo.main.temp }} &#8451
-                            </div>
-                            <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">Rainfall</h4>
-                                {% if data.winfo.rain %}
-                                    {% for key, value in data.winfo.rain %}
-                                        {{ value }}
-                                    {% endfor %}
-                                {% else %}Nil{% endif %}
-                            </div>
-                            <div class="form-row"><h4 style="display: inline-block; padding-right: 100px;">
-                                Clouds</h4>{{ data.winfo.clouds.all }} %
-                            </div>
-                        </div>
-
-                    </form>
                 </div>
             </div>
 
@@ -81,27 +46,28 @@
         <!-- Center Column -->
         <div class="col-sm-6">
 
-            <!-- Alert -->
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <strong>Map:</strong> India's Flood zones! States are marked according to number of deaths. More dark
-                circles means more deaths. Click on the zones to know more.
-            </div>
-
             <!-- Articles -->
-            <h3>Major flood zones : </h3>
             <br>
-
-            <div class="row" style="margin-left: 1%">
-                <div id="india_flood_map"></div>
-                <script>
-                    var zones = {{ zones | safe }};
-                </script>
-                <script src="{% static "js/flood_main.js" %}"></script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap">
-                </script>
+            <br>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                <h3 class="panel-title">For Volunteers and Rescue Organisations : </h3>
+                </div>
+            <br>
+            <div class="panel-body">
+            <p style="font-size: medium; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Please note that this section is for registration and login of Rescue Teams and Volunteers.
+            These may include Government organisations and NGOs. After Registration, You will get live information about
+            disasters occcuring in your area and you can monitor the needs and supplies available in that area.</p>
+            </div>
+            </div>
+            <br>
+            <div class="container" style="margin-left: 5%">
+                            <div class="col-sm-5">
+						        <a id="subs" class="btn-warning " href="{% url 'register' %}" style="margin-left:-10%">Register</a>
+                            </div>
+                            <div class="col-sm-5" style="margin-left: -70%">
+                                <a id="subs" class="btn-warning " href="{% url 'login' %}">Login</a>
+                            </div>
             </div>
             <br>
         </div><!--/Center Column-->
