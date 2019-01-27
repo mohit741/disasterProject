@@ -56,34 +56,42 @@
                         <li><a href="{% url 'undev' %}">Forest Fires</a></li>
                     </ul>
                 </li>
-                    {% if user.is_authenticated %}
-                        <li style="margin-left: 280px">
-                        <h4 class="glyphicon glyphicon-map-marker" style="display: inline-block; color:#b28bff;"> {{ user }}</h4>
-                        <a id="subs" class="btn-warning fa-border"  style="display: inline-block;margin-left: 50px;" href="{% url 'logout' %}">Logout</a>
-                        </li>
-                    {% else %}
-                        <li>
-                        <a id="subs" class="btn-warning fa-border" href="{% url 'subscribe' %}">Subscribe</a>
-                        </li>
-                    {% endif %}
-            </ul>
+              </ul>
+              <ul class = "nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                    <li style="margin-left: 280px">
+                    <h4 class="glyphicon glyphicon-map-marker" style="display: inline-block; color:#b28bff;"> {{ user }}</h4>
+                    <a id="subs" class="btn-warning fa-border"  style="display: inline-block;margin-left: 50px;" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li>
+                    <a id="subs" class="btn-warning fa-border" href="{% url 'subscribe' %}">Subscribe</a>
+                    </li>
+                {% endif %}
+              </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container -->
 </nav>
-<div class="row">
-    <div id="logo" title="Auxilior means help in Latin" style="margin-left:3%;margin-top:-8px;margin-bottom:5px;width:25%;">
-        <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:120px;">
+
+<div class = "container-fluid">
+  <div class = "row">
+    <div class = col-sm-3>
+      <div id="logo" title="Auxilior means help in Latin" class = "thumbnail">
+        <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:150px;">
+      </div>
     </div>
-    <div id="banner" style="margin-left:80px;margin-top:-130px;margin-bottom:5px;">
+    <div class = "col-sm-9">
+      <div id="banner" class = "thumbnail">
         <script type="text/javascript">
             var GLOBAL_PATH = '{% static "images" %}';
         </script>
-        <img name="slide" alt="Flood" style="height:150px; width:73%; margin-left:24.6%;">
+        <img name="slide" alt="Flood" style="height:150px; width:100%;">
         <script src="{% static "js/image_loader.js" %}"></script>
+      </div>
     </div>
-
+  </div>
 </div>
 
 <div id="content">

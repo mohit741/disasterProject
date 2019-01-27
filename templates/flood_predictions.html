@@ -60,14 +60,17 @@
 
             <!-- Articles -->
             <div class="row" style="margin-top:5%">
-                <div id="india_flood_map" style="margin-left: 3%"></div>
+              <div class="thumbnail">
+                <div id="india_flood_map"></div>
                 <script>
                     var global_url = "{% url 'query' %}";
                 </script>
-                <script src="{% static "js/pred.js" %}"></script>
+                <script src="{% static 'js/pred.js' %}"></script>
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap">
                 </script>
+              </div>
+
             </div>
             <br>
         </div><!--/Center Column-->
