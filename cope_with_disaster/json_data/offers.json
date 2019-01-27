@@ -1,0 +1,114 @@
+{
+  "first_aid" : [{
+    "lat" : "23.42857",
+    "lon" : "85.32192",
+    "ph" : "4289745896",
+    "info" : "Bandages, Needle, Antiseptic, Sterile Gauge"
+  },
+    {
+      "lat" : "23.46542",
+      "lon" : "85.36895",
+      "ph" : "6048967158",
+      "info" : "Bandages, Antiseptic, Petroleum Jelly"
+    },
+    {
+      "lat" : "23.37595",
+      "lon" : "85.43041",
+      "ph" : "0796723156",
+      "info" : "Antiseptic, Sterile gauge, Antacid"
+    },
+    {
+      "lat" : "23.42794",
+      "lon" : "85.54302",
+      "ph" : "5289631478",
+      "info" : "Latex Gloves, Thermometer, Bandages, Petroleum Jelly"
+    }
+  ],
+  "food" : [{
+    "lat" : "23.37532",
+    "lon" : "85.35968",
+    "ph" : "2487412358",
+    "info" : "Bread, Apple, Oats"
+  },
+    {
+      "lat" : "23.47487",
+      "lon" : "85.3923",
+      "ph" : "1259745896",
+      "info" : "Orange, Bread,Peanut Butter"
+    },
+    {
+    "lat" : "23.37878",
+    "lon" : "85.46646",
+    "ph" : "1757890257",
+    "info" : "Oats, Bread, Orange , Rice"
+  },
+    {
+      "lat" : "23.40746",
+      "lon" : "85.40363",
+      "ph" : "1759475698",
+      "info" : "Bread, Papapya, Oats"
+    },
+    {
+      "lat" : "23.43077",
+      "lon" : "85.35934",
+      "ph" : "1714789543",
+      "info" : "Rice, Apple, Oats"
+    }
+  ],
+  "water" : [{
+    "lat" : "23.40116",
+    "lon" : "85.46788",
+    "ph" : "4215885065",
+    "info" : "10 gallons"
+  },
+    {
+      "lat" : "23.40179",
+      "lon" : "85.39201",
+      "ph" : "3789871078",
+      "info" : "15 gallons"
+    },
+    {
+      "lat" : "23.47487",
+      "lon" : "85.31167",
+      "ph" : "3278654014",
+      "info" : "12 gallons"
+    },
+    {
+      "lat" : "23.48337",
+      "lon" : "85.48368",
+      "ph" : "3289678014",
+      "info" : "6 gallons"
+    },
+    {
+      "lat" : "23.35735",
+      "lon" : "85.42188",
+      "ph" : "3219747825",
+      "info" : "8 gallons"
+    }
+  ],
+  "shelter" : [{
+    "lat" : "23.40859",
+    "lon" : "85.49192",
+    "ph" : "3254587541",
+    "info" : "for 9 people"
+  },
+    {
+      "lat" : "23.36605",
+      "lon" : "85.34944",
+      "ph" : "3155871524",
+      "info" : "for 12 people"
+    },
+    {
+      "lat" : "23.34998",
+      "lon" : "85.44076",
+      "ph" : "1258954718",
+      "info" : "for 8 people"
+    },
+    {
+      "lat" : "23.46088",
+      "lon" : "85.41536",
+      "ph" : "3118874548",
+      "info" : "for 13 people"
+    }
+  ]
+}

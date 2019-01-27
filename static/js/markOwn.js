@@ -2,27 +2,12 @@
  * Created by mohit on 16-01-2019.
  */
 
-var lat_input_selector = '#lat',
-    lon_input_selector = '#lon';
-
 var res='';
-// If we don't have a lat/lon in the input fields,
-// this is where the map will be centered initially.
-var initial_lat = 27,
-    initial_lon = 82;
-
-// Initial zoom level for the map.
-var initial_zoom = 4.5;
-
-var geocoder, map, marker, $lat, $lon;
-
+var geocoder, map, marker;
 /**
  * Create HTML elements, display map, set up event listenerss.
  */
 function initMap() {
-    //$lat = document.getElementById("lat");//$(lat_input_selector);
-    // $lon = document.getElementById("lon");//$(lon_input_selector);
-
     map = new google.maps.Map(
         document.getElementById('locator'), {zoom: 4.5, mapTypeId: 'terrain'});
 
@@ -38,14 +23,10 @@ function initMap() {
         draggable: true
     });
 
-    //if (has_initial_loc) {
-    setMarkerPosition(initial_lat, initial_lon);
-    //}
-
+    setMarkerPosition(27, 82);
     google.maps.event.addListener(map, 'click', function (ev) {
         setMarkerPosition(ev.latLng.lat(), ev.latLng.lng());
     });
-
     google.maps.event.addListener(marker, 'dragend', function () {
         setInputValues(marker.getPosition().lat(), marker.getPosition().lng());
     });

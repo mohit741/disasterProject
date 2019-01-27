@@ -191,9 +191,9 @@ def get_loc_stats(request):
     return JsonResponse(data)
 
 def get_predicted_locations(request):
-    # fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'predicted_locations.json')
-    # data = json.load(open(fp))
-    pass
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'MT.json')
+    data = json.load(open(fp))
+    return JsonResponse(data)
 
 
 def get_current_loc(request):
@@ -215,18 +215,11 @@ def set_current_loc(request):
 def control_center(request):
     return render(request,'control.html')
 
-def get_offers_markers_pos(request):
+def get_markers_pos(request):
     data = {}
-    type = request.GET['type']
-    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'offers_pos.json')
+    mode = request.GET['mode']
+    typ = request.GET['type']
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + mode + '.json')
     d = json.load(open(fp))
-    data['loc_array'] = d[str(type)]
-    return JsonResponse(data)
-
-def get_requests_markers_pos(request):
-    data = {}
-    type = request.GET['type']
-    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'requests_pos.json')
-    d = json.load(open(fp))
-    data['loc_array'] = d[str(type)]
+    data['results'] = d[str(typ)]
     return JsonResponse(data)

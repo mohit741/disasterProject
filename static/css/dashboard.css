@@ -38,16 +38,16 @@
 }
 
 .sidenav {
-    height: 70%;
-    width: 0;
+    height: 60%;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgba(44, 44, 42, 0.95);
+    background-color: rgba(210, 205, 202, 0.96);
     overflow-x: hidden;
     transition: 0.5s;
-    margin-top: 12%;
+    margin-top: 14%;
     padding-top: 60px;
 }
 

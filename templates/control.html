@@ -2,66 +2,89 @@
 {% load static %}
 <html>
 <head>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 </head>
 <body>
-	<div class="row" id="logo" style="background-color:black;">
-        <a title="Auxilior means help in Latin" href="{% url 'flood_home' %}">
-            <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:120px; margin-left: 1%">
-        </a>
-         <h2 style="display: inline-block;color:orangered;font-family: 'Roboto', 'Lucida Grande', Verdana, Arial, sans-serif; margin-left: 10%;">Remote Volunteering Control Panel</h2>
-         <a id="subs" class="btn-warning fa-border"  style="display: inline-block;margin-left: 13%;" href="{% url 'logout' %}">Logout</a>
-        <br>
-    </div>
+<div class="row" id="logo" style="background-color:black;">
+    <a title="Auxilior means help in Latin" href="{% url 'flood_home' %}">
+        <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:120px; margin-left: 1%">
+    </a>
+
+    <h2 style="display: inline-block;color:orangered;font-family: 'Roboto', 'Lucida Grande', Verdana, Arial, sans-serif; margin-left: 10%;">
+        Remote Volunteering Control Panel</h2>
+    <a id="subs" class="btn-warning fa-border" style="display: inline-block;margin-left: 13%;"
+       href="{% url 'logout' %}">Logout</a>
     <br>
-    <div id="left">
-		<ul class="nav nav-tabs nav-justified" style="height: 3%">
-			<li class="active"><a onclick="needs()" class="tab-pane" data-toggle="tab" href="" style="background-color: black;"><h3 style="font-size: 2vw;">Needs</h3></a></li>
-			<li><a onclick="offers()" class="tab-pane" data-toggle="tab" href="" style="background-color: black;"><h3 style="font-size: 2vw;">Offers</h3></a></li>
-            <li><a onclick="hospitals()" class="tab-pane" data-toggle="tab" href="" style="background-color: black;"><h3 style="font-size: 2vw;">Hospitals</h3></a></li>
-            <li><a onclick="report()" class="tab-pane" data-toggle="tab" href="" style="background-color: black;"><h3 style="font-size: 2vw;">Report</h3></a></li>
-		</ul>
-        <div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+</div>
+<br>
 
-			<div class="panel" style="background-color: transparent">
-                <div class="panel-heading"><h3 class="glyphicon glyphicon-info-sign" style="font-family:Roboto, sans-serif;font-size: medium; color: whitesmoke;" > Info</h3></div>
-                <div class="panel-body" style="background-color: transparent">
-                   <p id="infotxt"></p>
-                </div>
-			</div>
-		</div>
-	</div>
-
-
-	<div id="center">
-        <div style="background-color: black; height: 7.3%; width: 100%;">
+<div id="left">
+    <ul class="nav nav-tabs nav-justified" style="height: 3%">
+        <li class="active"><a onclick="return needs();" class="tab-pane" data-toggle="tab" href=""
+                              style="background-color: black;"><h3 style="font-size: 2vw;">Needs</h3></a></li>
+        <li><a onclick="return offers();" class="tab-pane" data-toggle="tab" href="" style="background-color: black;">
+            <h3 style="font-size: 2vw;">Offers</h3></a></li>
+        <li><a onclick="get_hospitals();" class="tab-pane" data-toggle="tab" href="" style="background-color: black;">
+            <h3 style="font-size: 2vw;">Hospitals</h3></a></li>
+        <li><a onclick="alert('Under Development')" class="tab-pane" data-toggle="tab" href=""
+               style="background-color: black;"><h3 style="font-size: 2vw;">Report</h3></a></li>
+    </ul>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="panel" style="background-color: transparent; margin-top: -10%">
+            <div class="panel-heading row"><img id="infoimg" style="margin-left: 5%;color: black;display: inline;" src=""><h3 id ="infohead" style="font-family:Roboto, sans-serif;font-size: medium; color: black; display: inline;"></h3></div>
+            <div class="panel-body" style="background-color: transparent">
+                <p id="infotxt" style="color: black"></p>
+            </div>
         </div>
-		<div id="map">
-            <img id="load" src="{% static 'images/ajax-loader.gif' %}" style="height:7%;width:5%;margin-left: 50%;margin-top: 26%">
-        </div>
-	</div>
+    </div>
+</div>
 
-	<div id="right">
-		<div class="btn-group">
-            <button id="firstaid-btn" onclick="openNav('help')"><img src="{% static 'images/help.png'%}" />  Help!</button>
-            <button id="firstaid-btn" onclick="openNav('firstaid')"><img src="{% static 'images/firstaid.png'%}" />  First Aid</button>
-			<button id="food-btn" onclick="openNav('food')"><img src="{% static 'images/food.png'%}" />  Food</button>
-			<button id="water-btn" onclick="openNav('water')" ><img src="{% static 'images/water.png'%}" />  Water</button>
-			<button id="shelter-btn" onclick="openNav('shelter')"><img src="{% static 'images/shelter.png'%}" />  Shelter</button>
-			<button id="more-btn" onclick="alert('Coming soon!')"><img src="{% static 'images/more.png'%}" /></button>
-		</div>
-	</div>
-    <script>
-        var global_url = "{% url 'currloc' %}";
-    </script>
-	<script src="{% static 'js/control.js' %}"></script>
-    <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=init"></script>
+
+<div id="center">
+    <div style="background-color: black; height: 7.3%; width: 100%;">
+    </div>
+    <div id="map">
+        <img id="load" src="{% static 'images/ajax-loader.gif' %}"
+             style="height:7%;width:5%;margin-left: 50%;margin-top: 26%">
+    </div>
+</div>
+
+<div id="right">
+    <div class="btn-group">
+        <button id="firstaid-btn" onclick="openNav('help')"><img src="{% static 'images/help.png' %}"/> Help!</button>
+        <button id="firstaid-btn" onclick="openNav('first_aid')"><img src="{% static 'images/firstaid.png' %}"/> First
+            Aid
+        </button>
+        <button id="food-btn" onclick="openNav('food')"><img src="{% static 'images/food.png' %}"/> Food</button>
+        <button id="water-btn" onclick="openNav('water')"><img src="{% static 'images/water.png' %}"/> Water</button>
+        <button id="shelter-btn" onclick="openNav('shelter')"><img src="{% static 'images/shelter.png' %}"/> Shelter
+        </button>
+        <button id="more-btn"
+                onclick="alert('Coming soon! With this feature volunteer/organisation will be able to add resources he/it can provide')">
+            <img src="{% static 'images/more.png' %}"/></button>
+    </div>
+</div>
+<script>
+    var fh = 'This map shows locations where there is need/offer of ';
+    var sh = '. This data is made available by tweets and manual markings by volunteers. Clicking the markers will open up an information window which contains contact number of person and information about need/offers. Volunteers can click on the processed link to remove the marker if it is taken care of.';
+    var global_url = "{% url 'currloc' %}";
+    var mode_url = "{% url 'mode' %}";
+    var urls = {};
+    urls['water'] = "{% static 'images/water32.png' %}";
+    urls['food'] = "{% static 'images/food32.png' %}";
+    urls['shelter'] = "{% static 'images/shelter32.png' %}";
+    urls['help'] = "{% static 'images/help32.png' %}";
+    urls['first_aid'] = "{% static 'images/firstaid32.png' %}";
+    urls['hospital'] = "{% static 'images/hospital32.png' %}";
+</script>
+<script src="{% static 'js/control.js' %}"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&libraries=places&callback=init"></script>
 <footer>
     <div class="footer-blurb">
         <div class="container">
@@ -77,6 +100,7 @@
             <p style="margin-left: 35%"><a href="#">Terms &amp; Conditions</a> | <a
                     href="https://www.freeprivacypolicy.com/privacy/view/6f58f71fb06019b0dad46f3695987a1f">Privacy
                 Policy</a> | <a href="#">Contact</a></p>
+
             <p style="margin-left: 37%">Copyright &copy; The Dark Phoenix team </p>
         </div>
     </div>

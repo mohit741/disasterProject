@@ -15,7 +15,7 @@
                 <div class="list-group">
                     <a href="{% url 'current_stats' %}" class="list-group-item">Mark my location</a>
                     {% if not user.is_authenticated %}
-                    <a href="{% url 'volunteer' %}" class="list-group-item">Rescue Team/ Volunteers</a>
+                        <a href="{% url 'volunteer' %}" class="list-group-item">Rescue Team/ Volunteers</a>
                     {% else %}
                         <a href="{% url 'control' %}" class="list-group-item">Control Center</a>
                     {% endif %}
@@ -59,16 +59,15 @@
             </div>
 
             <!-- Articles -->
-            <div class="row" style="margin-top:5%">
-                <div id="india_flood_map" style="margin-left: 3%"></div>
-                <script>
-                    var global_url = "{% url 'query' %}";
-                </script>
-                <script src="{% static "js/pred.js" %}"></script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap">
-                </script>
-            </div>
+            <div id="india_flood_map"></div>
+            <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
+            <script>
+                var global_url = "{% url 'predict' %}";
+            </script>
+            <script src="{% static "js/pred.js" %}"></script>
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&libraries=visualization&callback=init">
+            </script>
             <br>
         </div><!--/Center Column-->
 
@@ -84,9 +83,10 @@
                         In the Map:
                     </h3>
                 </div>
-                <div class="panel-body" style="color: red">
-                    <h4>The map will show the places where flood may occur and warning is being issued. It will also
-                        generate warning that will be send via email and facebook post. </h4>
+                <div class="panel-body">
+                    <h4 style="color: #ff3005; font-size: 1.5vw">The map is showing the places that are prone to flood.
+                        The prediction will be based on tweets analysis, on the basis of predictions from india-water.gov.in
+                        portal and reports of our volunteers.</h4>
                 </div>
             </div>
 

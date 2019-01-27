@@ -35,8 +35,8 @@ urlpatterns = [
     path('logout/', views.logout_user, name='logout'),
     path('query/locstats', views.get_loc_stats, name='query'),
     path('control/', views.control_center, name='control'),
-    path('query/offers', views.get_offers_markers_pos, name='offers'),
-    path('query/requests', views.get_requests_markers_pos, name='requests'),
+    path('query/mode', views.get_markers_pos, name='mode'),
     path('query/currloc', views.get_current_loc, name='currloc'),
     path('query/saveloc', views.set_current_loc, name='saveloc'),
+    path('query/predictions', views.get_predicted_locations, name='predict'),
 ]

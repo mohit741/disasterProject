@@ -2,9 +2,34 @@
  * Created by mohit on 25-01-2019.
  */
 /* Flag to determine resource availability need/offer
- 0 : needs, 1 : offers, 2 : hospitals, 3 : report
+ 0 : needs, 1 : offers
  */
+
 var flag = 0;
+var infoWindow, map = null;
+var latitude, longitude;
+var currentId = 0;
+var marks = {};
+var uniqueId = function () {
+    return ++currentId;
+};
+var navInfos = {
+    'food': fh+'food'+sh,
+    'water': '',
+    'shelter': '',
+    'first_aid': '',
+    'help': ''
+};
+function needs() {
+    flag = 0;
+    console.log(flag);
+    //return false;
+}
+function offers() {
+    flag = 1;
+    console.log(flag);
+    //return false;
+}
 function initMp() {
     uluru = {lat: 12.9717, lng: 77.594};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -85,6 +110,8 @@ function init() {
             dataType: 'json',
             success: function (data) {
                 $('#load').hide();
+                latitude = data['lat'];
+                longitude = data['lon'];
                 initMap(data['lat'], data['lon']);
             }
         });
@@ -108,16 +135,18 @@ function initMap(lat, lng) {
                 }
             ]
         });
-    marker = new google.maps.Marker({
-        map: map,
-        draggable: true
-    });
-    //setMarkerPosition(lat, lng);
+    infoWindow = new google.maps.InfoWindow();
 }
 
 function openNav(str) {
     document.getElementById("mySidenav").style.width = "15%";
-    document.getElementById("infotxt").innerHTML = str;
+    document.getElementById("infotxt").innerHTML = fh + str + sh;
+    document.getElementById("infohead").innerHTML = '  '+str.charAt(0).toUpperCase() + str.substr(1);
+    document.getElementById("infoimg").src = urls[str];
+    console.log(flag);
+    if (map != null)
+        initMap(latitude, longitude);
+    getMarkers(str);
 }
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
@@ -128,77 +157,90 @@ $(document).ready(function () {
         $(this).addClass('active');
     });
 });
+function get_hospitals() {
+    initMap(latitude, longitude);
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+        location: {lat: latitude, lng: longitude},
+        radius: 10000,
+        type: ['hospital']
+    }, callback);
 
-rescueMarkers = [];
-rescueRequests = [{lat: -25.363, lng: 131.044}, {lat: -20.303, lng: 156.044}];
-function rescueHandle(checkBox) {
-    if (checkBox.checked) {
-        for (var i = 0; i < rescueRequests.length; i++) {
-            rescueMarkers.push(new google.maps.Marker({
-                position: rescueRequests[i],
-                map: map,
-                icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|F00'
-            }));
-        }
-    }
-    else {
-        for (var i = 0; i < rescueMarkers.length; i++) {
-            rescueMarkers[i].setMap(null);
+}
+function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
         }
     }
 }
-waterMarkers = [];
-waterRequests = [{lat: 12.971, lng: 77.594}, {lat: 12.839, lng: 76.988}, {lat: 12.456, lng: 77.236}];
-function waterHandle(checkBox) {
-    if (checkBox.checked) {
-        for (var i = 0; i < waterRequests.length; i++) {
-            waterMarkers.push(new google.maps.Marker({
-                position: waterRequests[i],
-                map: map,
-                icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|0FF'
-            }));
-        }
-    }
-    else {
-        for (var i = 0; i < waterMarkers.length; i++) {
-            waterMarkers[i].setMap(null);
-        }
-    }
+
+function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+        map: map,
+        position: placeLoc,
+        icon: urls['hospital']
+    });
+
+    google.maps.event.addListener(marker, 'click', function () {
+        infoWindow.setContent(place.name);
+        infoWindow.open(map, this);
+    });
 }
-foodMarkers = [];
-foodRequests = [{lat: -15.363, lng: 122.044}, {lat: -25.303, lng: 120.044}];
-function foodHandle(checkBox) {
-    if (checkBox.checked) {
-        for (var i = 0; i < foodRequests.length; i++) {
-            foodMarkers.push(new google.maps.Marker({
-                position: foodRequests[i],
-                map: map,
-                icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|0F0'
-            }));
-        }
-    }
-    else {
-        for (var i = 0; i < foodMarkers.length; i++) {
-            foodMarkers[i].setMap(null);
-        }
-    }
+function deleteMarker(id) {
+    var marker = marks[id]; // find the marker by given id
+    marker.setMap(null);
 }
-function setMarkers(type) {
+
+function getMarkers(type) {
+    var mode;
+    if (flag == 0)
+        mode = 'needs';
+    else
+        mode = 'offers';
     $(document).ready(function () {
         $('#load').show();
         $.ajax({
-            url: global_url,
+            url: mode_url,
             data: {
-                'lon': lon, 'lat': lat
+                'type': type,
+                'mode': mode
             },
             dataType: 'json',
             success: function (data) {
-                geocodeLatLng(lat, lon);
-                //console.log(res);
-                $('#load').hide();
-                document.getElementById('tweet').innerHTML = data['tweets'];
-                marker.setPosition({lat: lat, lng: lon});
+                var markers = data['results'];
+                console.log(markers);
+                setMarkers(markers, type);
             }
         });
     });
+
+}
+
+function setMarkers(markers, type) {
+    var bounds = new google.maps.LatLngBounds();
+    var i;
+    for (i = 0; i < markers.length; i++) {
+        var id = uniqueId();
+        var position = new google.maps.LatLng(parseFloat(markers[i]['lat']), parseFloat(markers[i]['lon']));
+        bounds.extend(position);
+        marker = new google.maps.Marker({
+            id: id,
+            position: position,
+            map: map,
+            icon: urls[type]
+        });
+        marks[id] = marker;
+        // Allow each marker to have an info window
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                infoWindow.setContent('Contact : ' + markers[i]['ph'] + '<br><br>Info : ' + markers[i]['info'] + '<br><br><a onclick="deleteMarker(' + marker.id + ')">Processed</a>');
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+
+        // Automatically center the map fitting all markers on the screen
+        map.fitBounds(bounds);
+    }
 }

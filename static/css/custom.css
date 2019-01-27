@@ -45,6 +45,7 @@ h4 {
 #india_flood_map {
     height: 600px;
     width: 400px;
+    margin-left: 3%;
     background-color: grey;
 }
 #winfo {
