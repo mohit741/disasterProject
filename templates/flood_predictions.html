@@ -44,7 +44,6 @@
             </div>
 
             <!-- Text Panel -->
-
         </div><!--/Left Column-->
 
 
@@ -62,18 +61,15 @@
               <div class="thumbnail">
                 <div id="india_flood_map"></div>
                 <script>
-                    var global_url = "{% url 'query' %}";
+                    var global_url = "{% url 'predict' %}";
                 </script>
                 <script src="{% static 'js/pred.js' %}"></script>
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&libraries=visualization&callback=init">
                 </script>
               </div>
-
-            </div>
             <br>
         </div><!--/Center Column-->
-
 
         <!-- Right Column -->
         <div class="col-sm-3">

@@ -13,13 +13,6 @@ var marks = {};
 var uniqueId = function () {
     return ++currentId;
 };
-var navInfos = {
-    'food': fh+'food'+sh,
-    'water': '',
-    'shelter': '',
-    'first_aid': '',
-    'help': ''
-};
 function needs() {
     flag = 0;
     console.log(flag);
@@ -151,12 +144,12 @@ function openNav(str) {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
-$(document).ready(function () {
+/*$(document).ready(function () {
     $('.list-group-item').click(function () {
         $('.list-group-item').removeClass('active');
         $(this).addClass('active');
     });
-});
+});*/
 function get_hospitals() {
     initMap(latitude, longitude);
     var service = new google.maps.places.PlacesService(map);
@@ -235,7 +228,7 @@ function setMarkers(markers, type) {
         // Allow each marker to have an info window
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
             return function () {
-                infoWindow.setContent('Contact : ' + markers[i]['ph'] + '<br><br>Info : ' + markers[i]['info'] + '<br><br><a onclick="deleteMarker(' + marker.id + ')">Processed</a>');
+                infoWindow.setContent('Contact : ' + markers[i]['ph'] + '<br><br>Info : ' + markers[i]['info'] + '<br><br><a class="btn btn-success" onclick="deleteMarker(' + marker.id + ')">Processed</a>');
                 infoWindow.open(map, marker);
             }
         })(marker, i));
