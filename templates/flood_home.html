@@ -90,18 +90,23 @@
             </div>
 
             <!-- Articles -->
-            <h3>Major flood zones : </h3>
-            <br>
+            <div>
+              <h3>Major flood zones : </h3>
+              <br>
+            </div>
 
             <div class="row" style="margin-left: 1%">
+              <div class="thumbnail">
                 <div id="india_flood_map"></div>
                 <script>
                     var zones = {{ zones | safe }};
                 </script>
-                <script src="{% static "js/flood_main.js" %}"></script>
+                <script src="{% static 'js/flood_main.js' %}"></script>
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initMap">
                 </script>
+              </div>
+
             </div>
             <br>
         </div><!--/Center Column-->
@@ -130,7 +135,9 @@
             </div>
             <br>
             <!-- Carousel -->
-            <h3><span class="glyphicon glyphicon-modal-window"></span> Prevention </h3>
+            <div class="">
+              <h3><span class="glyphicon glyphicon-modal-window"></span> Prevention </h3>
+            </div>
 
             <div id="side-carousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -143,44 +150,44 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                    <a href="{% static "images/pre1.jpg" %}" target="_blank">
+                    <a href="{% static 'images/pre1.jpg' %}" target="_blank">
                         <img style="height:400px;width:350px;" class="img-responsive"
-                             src="{% static "images/pre1.jpg" %}" alt="">
+                             src="{% static 'images/pre1.jpg' %}" alt="">
                     </a>
 
                     </div>
                     <div class="item">
-                        <a href="{% static "images/pre2.jpg" %}" target="_blank">
+                        <a href="{% static 'images/pre2.jpg' %}" target="_blank">
                         <img style="height:400px;width:350px;" class="img-responsive"
-                             src="{% static "images/pre2.jpg" %}" alt="">
+                             src="{% static 'images/pre2.jpg' %}" alt="">
                              </a>
 
                     </div>
                     <div class="item">
-                        <a href="{% static "images/pre3.jpg" %}" target="_blank">
+                        <a href="{% static 'images/pre3.jpg' %}" target="_blank">
                         <img style="height:400px;width:350px;" class="img-responsive"
-                             src="{% static "images/pre3.jpg" %}" alt="">
+                             src="{% static 'images/pre3.jpg' %}" alt="">
                         </a>
 
                     </div>
                     <div class="item">
-                        <a href="{% static "images/pre4.jpg" %}" target="_blank">
+                        <a href="{% static 'images/pre4.jpg' %}" target="_blank">
                         <img style="height:400px;width:350px;" class="img-responsive"
-                             src="{% static "images/pre4.jpg" %}" alt="">
+                             src="{% static 'images/pre4.jpg' %}" alt="">
                         </a>
                     </div>
 
                     <div class="item">
-                        <a href="{% static "images/pre5.jpg" %}" target="_blank">
+                        <a href="{% static 'images/pre5.jpg' %}" target="_blank">
                         <img style="height:400px;width:350px;" class="img-responsive"
-                             src="{% static "images/pre5.jpg" %}" alt="">
+                             src="{% static 'images/pre5.jpg' %}" alt="">
                         </a>
                     </div>
 
                     <div class="item">
-                        <a href="{% static "images/pre6.jpg" %}" target="_blank">
+                        <a href="{% static 'images/pre6.jpg' %}" target="_blank">
                         <img style="height:400px;width:350px;" class="img-responsive"
-                             src="{% static "images/pre6.jpg" %}" alt="">
+                             src="{% static 'images/pre6.jpg' %}" alt="">
                         </a>
                     </div>
 

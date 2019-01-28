@@ -59,15 +59,18 @@
             </div>
 
             <!-- Articles -->
-            <div id="india_flood_map"></div>
-            <script src="{% static "js/jquery-3.3.1.min.js" %}"></script>
-            <script>
-                var global_url = "{% url 'predict' %}";
-            </script>
-            <script src="{% static "js/pred.js" %}"></script>
-            <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&libraries=visualization&callback=init">
-            </script>
+              <div class="thumbnail">
+                <div id="india_flood_map"></div>
+                <script>
+                    var global_url = "{% url 'query' %}";
+                </script>
+                <script src="{% static 'js/pred.js' %}"></script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&libraries=visualization&callback=init">
+                </script>
+              </div>
+
+            </div>
             <br>
         </div><!--/Center Column-->
 

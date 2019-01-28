@@ -95,12 +95,14 @@
                 <h3> Flood monitoring stations in {{ state }}</h3>
                 <br>
 
-                <div id="dam_map" style="height: 550px; width: 500px; background-color: white;"></div>
+                <div class="thumbnail">
+                  <div id="dam_map" style="height: 500px; width: 100%; background-color: white;"></div>
+                </div>
                 <script>
                     var state = '{{ state }}';
                     var stations = {{ stations | safe }};
                 </script>
-                <script src="{% static "js/states.js" %}"></script>
+                <script src="{% static 'js/states.js' %}"></script>
                 <script async defer
                         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU&callback=initialize">
                 </script>
