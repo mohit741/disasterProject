@@ -15,15 +15,13 @@ function init() {
         dataType: 'json',
         success: function (data) {
             //$('#load').hide();
-            console.log(data);
+            //console.log(data);
             var arr = [];
-            var i;
-            for (i = 0; i < 1000; i++)
+            for(var key in data)
             {
-                console.log(data[i][1]);
-                arr.push(new google.maps.LatLng(data[i][1], data[i][0]));
+                arr.push(new google.maps.LatLng(data[key][1], data[key][0]));
             }
-            console.log(arr);
+            //console.log(arr);
             initMap(arr);
         }
       });

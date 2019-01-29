@@ -123,9 +123,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+EMAIL_HOST_USER = 'mohit741'
+EMAIL_HOST_PASSWORD = 'django741'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = False
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'admin@copingwithdisaster.azurewebsites.net'
+DEFAULT_FROM_EMAIL = 'admin@auxilior'
 ACCOUNT_EMAIL_SUBJECT_PREFIX = 'Flood Warning'

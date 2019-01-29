@@ -34,11 +34,11 @@
                style="background-color: black;"><h3 style="font-size: 2vw;">Report</h3></a></li>
     </ul>
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0);" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="panel" style="background-color: transparent; margin-top: -10%">
-            <div class="panel-heading row"><img id="infoimg" style="margin-left: 5%;color: black;display: inline;" src=""><h3 id ="infohead" style="font-family:Roboto, sans-serif;font-size: medium; color: black; display: inline;"></h3></div>
-            <div class="panel-body" style="background-color: transparent">
-                <p id="infotxt" style="color: black"></p>
+            <div class="panel-heading row" style="margin-top: -5%"><img id="infoimg" style="margin-left: 5%;color: black;display: inline;" src=""><h3 id ="infohead" style="font-family:Roboto, sans-serif;font-size: medium; color: black; display: inline;"></h3></div>
+            <div class="panel-body" style="margin-top:-5%;background-color: transparent">
+                <p id="infotxt" style="color: black; font-size: small;"></p>
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@
 
 <div id="right">
     <div class="btn-group">
-        <button id="firstaid-btn" onclick="openNav('help')"><img src="{% static 'images/help.png' %}"/> Help!</button>
+        <button id="help" onclick="openNav('help')"><img src="{% static 'images/help.png' %}"/> Help!</button>
         <button id="firstaid-btn" onclick="openNav('first_aid')"><img src="{% static 'images/firstaid.png' %}"/> First
             Aid
         </button>

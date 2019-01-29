@@ -14,84 +14,20 @@ var uniqueId = function () {
     return ++currentId;
 };
 function needs() {
+    closeNav();
+    $('#help').show();
+    deleteAll();
     flag = 0;
     console.log(flag);
     //return false;
 }
 function offers() {
+    closeNav();
+    $('#help').hide();
+    deleteAll();
     flag = 1;
     console.log(flag);
     //return false;
-}
-function initMp() {
-    uluru = {lat: 12.9717, lng: 77.594};
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 4,
-        center: uluru
-        /*mapTypeId: google.maps.MapTypeId.TERRAIN*/
-    });
-    // see https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
-    var input = document.getElementById('pac-input');
-    var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds_changed', function () {
-        searchBox.setBounds(map.getBounds());
-    });
-    markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-    searchBox.addListener('places_changed', function () {
-        var places = searchBox.getPlaces();
-        if (places.length == 0) {
-            return;
-        }
-        // Clear out the old markers.
-        markers.forEach(function (marker) {
-            marker.setMap(null);
-        });
-        markers = [];
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
-        places.forEach(function (place) {
-            if (!place.geometry) {
-                console.log("Returned place contains no geometry");
-                return;
-            }
-            /*var icon = {
-             url: place.icon,
-             size: new google.maps.Size(71, 71),
-             origin: new google.maps.Point(0, 0),
-             anchor: new google.maps.Point(17, 34),
-             scaledSize: new google.maps.Size(25, 25)
-             };*/
-            var jumping_marker = new google.maps.Marker({
-                map: map,
-                title: place.name,
-                position: place.geometry.location
-            })
-            // Create a marker for each place.
-            markers.push(jumping_marker);
-            jumping_marker.setAnimation(google.maps.Animation.BOUNCE);
-            setTimeout(function stopBounce() {
-                jumping_marker.setAnimation(null);
-            }, 2200);
-            var contentString = '<a href="#" onclick="new function(){markers.forEach(function(marker){marker.setMap(null);});}"> Clear markers </a>';
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
-            jumping_marker.addListener('click', function () {
-                infowindow.open(map, jumping_marker);
-            });
-            if (place.geometry.viewport) {
-                // Only geocodes have viewport.
-                bounds.union(place.geometry.viewport);
-            } else {
-                bounds.extend(place.geometry.location);
-            }
-        });
-        map.fitBounds(bounds);
-    });
 }
 
 function init() {
@@ -185,7 +121,12 @@ function deleteMarker(id) {
     var marker = marks[id]; // find the marker by given id
     marker.setMap(null);
 }
-
+function deleteAll()
+{
+    for(var key in marks) {
+        deleteMarker(key);
+    }
+}
 function getMarkers(type) {
     var mode;
     if (flag == 0)

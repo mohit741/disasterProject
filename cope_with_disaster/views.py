@@ -191,7 +191,7 @@ def get_loc_stats(request):
     return JsonResponse(data)
 
 def get_predicted_locations(request):
-    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'MT.json')
+    fp = os.path.join(BASE_DIR, 'cope_with_disaster/json_data/' + 'predictions.json')
     data = json.load(open(fp))
     return JsonResponse(data)
 
