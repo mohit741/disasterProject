@@ -28,8 +28,8 @@ def post_warning():
     msg = str(Variable.objects.filter(name='MSG').first().info)
     sms = str(Variable.objects.filter(name='SMS_MSG').first().info)
     coords = Variable.objects.filter(name='LatLng').first().info
-    get_tweet_data()
     if coords != 'null' :
+        get_tweet_data()
         geolocator = GoogleV3(api_key='AIzaSyCcHofqZ7qVRGDmAOFyJK9ufcjJow6fFEU')
         address = geolocator.reverse(coords)
         place = str(address[2])[:-7]

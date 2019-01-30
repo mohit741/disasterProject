@@ -2,24 +2,36 @@
 Our submission for Microsoft's codefundo++.
 <br>
 <br>
-<b>Let's cope with Disaster</b>
+<b>Auxilior</b>
 <br>
 <br>
-We are focusing on the predictions and prevention part of the theme. <br>
-So, this project basically comprises of a Web App, which will show various data related to disaster and preventive measures that the government need to take to minimize the effect of the disaster. As we all know, we can't really predict for sure the time and place of disasters. But, it is well known that a good contingency plan and preventive measures could save a lot of lives.
+We are focusing on the predictions and management part of the theme. <br>
+So, this project basically comprises of a Web App, which will show various data related to disaster. As we all know, we can't really predict for sure the time and place of disasters. But, it is well known that a good contingency plan and preventive measures could save a lot of lives.
 <br>
 <br>
-In the prototype, we will only have a working system for floods. We will gather rainfall data and previous flood data. We will also analyze how pre-planning could reduce damage caused. Like in the case of floods, we can have the following:-
+In the prototype, we will only have a working system for floods.In the case of floods, we can have the following:-
 <br>
 <br>
 <ul>
-<li> Prediction of floods based on current rainfall stats and visualising it using graph.
 <li> Map showing danger zones.
-<li> Regular monitoring of the risk of flooding using information from local authorities.
-<li> Automatically posting warning in our facebook page 'Let's Cope with Disaster' in case of emergency.
-<li> Analyzing forest density and suggesting places where trees should be planted to minimize impact.
-<li> Suggesting building heights at particular places by analyzing flood levels in that area.
-<li> Analyzing population and residential structures that are prone to damage by flood by showing them on map 
-     and then we can estimate evacuation time in case of emergency.
+<li> Regular monitoring of the risk of flooding using information from volunteers and india-water.gov.in portal.
+<li> Utilizing social media like twitter for detecting floods.
+<li> Automatically posting warning on our facebook page 'Auxilior' in case of emergency.
+<li> Analyzing tweets to gather information about needs and offers of resources during and after disaster.
+<li> Sending SMS and emails to subscribed users about predictions and other updates.
 <li> Sending warning and suggestions to stakeholders through email.
+</ul>
+<br>
+<b>Technology Stack used :-</b>
+<br>
+<ul>
+<li> Django Web Framework
+<li> Sendgrid on Azure
+<li> APScheduler
+<li> TweePy, Twitter API
+<li> Facebook Graph API
+<li> Google Maps API
+<li> TextLocal for SMS
+<br>
+<b> Hosted on Azure Cloud Services </b>
 </ul>

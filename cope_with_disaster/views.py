@@ -4,7 +4,6 @@ from django.http import JsonResponse
 
 from disasterProject.settings import BASE_DIR
 from django.shortcuts import render, redirect
-from cope_with_disaster.fb_auto_post import post_warning
 import requests
 import json
 from .forms import EmailSubForm, UserForm, RegForm
