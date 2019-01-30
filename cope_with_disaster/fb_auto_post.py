@@ -15,8 +15,8 @@ from geopy.geocoders import GoogleV3
 from disasterProject.settings import BASE_DIR
 
 DEFAULT_FROM_EMAIL = 'admin@copingwithdisaster.azurewebsites.net'
-SMS_API_KEY = 'HdnjGkOhPoM-FS13rFzXjkkpz3hdRP2ZJAKxXeplyT'
-page_access_token = 'EAAFNCw0phUMBAA7qXwD8yfCK69U546a4Kb9HuZBNPEWFzzrRMU8TUQWRTPxqlZAduIzQcKhLv2T7DvZBvGu6FtJ4bBq9v6FwycqwBziyY9ahZBCddw5dyVHyR5U3uKSOowUAMplWBk0hxZA9Lcb8JLEqW6z08VaaWUoh5eg1uCxKZBZCvCeJaR1fktVZCHIZCQFisxWnTtZBrlbAZDZD'
+SMS_API_KEY = ''
+page_access_token = ''
 
 # Create scheduler instance and Configure jobstore
 scheduler = BackgroundScheduler()

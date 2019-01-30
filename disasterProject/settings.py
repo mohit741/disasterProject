@@ -22,7 +22,7 @@ SECRET_KEY = 'cp!d_*=(l$%bed4hi33&kz!jh$(b)40vy$fqa8ko20@5(&#kwt'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['copingwithdisaster.azurewebsites.net', 'localhost', '127.0.0.1']
 
@@ -123,8 +123,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-EMAIL_HOST_USER = 'mohit741'
-EMAIL_HOST_PASSWORD = 'django741'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = False

@@ -22,42 +22,55 @@
 
 </head>
 <body>
- <div id="logo" title="Auxilior means help in Latin" style="margin-left:3%;margin-top:-8px;margin-bottom:5px;width:25%;">
-         <a href="{% url 'flood_home' %}">
-             <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:120px;">
-         </a>
+<div id="logo" title="Auxilior means help in Latin" style="margin-left:3%;margin-top:-8px;margin-bottom:5px;width:25%;">
+    <a href="{% url 'flood_home' %}">
+        <img src="{% static "images/logo_orange.png" %}" alt="Auxilior" style="height:120px;">
+    </a>
 
- </div>
+</div>
 
 <div class="container-fluid" style="margin-bottom: 500px;">
     <div style="margin-left: 5%">
         <h1> About</h1>
         <br>
-        <p style="color: #ebebeb; font-size: large;"> Most floods take hours or even days to develop, giving residents ample time to prepare or evacuate. Others
-            generate quickly and with little warning. These flash floods can be extremely dangerous, instantly turning a
-            babbling brook into a thundering wall of water and sweeping everything in its path downstream.
+
+        <p style="color: #ebebeb; font-size: large;">Most floods take hours or even days to develop, giving residents
+            ample time to prepare or evacuate. Others generate quickly and with little warning. These flash floods can
+            be extremely dangerous, instantly turning a babbling brook into a thundering wall of water and sweeping
+            everything in its path downstream. So, we really need to detect and predict these flash floods.
+            <br>
             <br>
             Flood depends on the complex mixture of rainfall, soil moisture and the recent history of precipitation.
-            Snowmelts and storm surges can also contribute to unexpected floods.
-            <br>
+            Snowmelts and storm surges can also contribute to unexpected floods. 
             We are the Dark Phoenix team of BIT Mesra. Our website provides you with all the details you need to know
-            about flooding in your area. The website has a very friendly user interface. The site contains various
-            info box which will guide you through the website.
-            The map shows major flood zones in India with red circles. The degree of redness indicates the degree of
-            deaths. Due to lack of data we will use central water commission to provide results of prediction.
-            The website shows warnings and will also send emails to subscribers and respective authorities of the
-            locality.
+            about flooding in your area. We have built our website using Django web framework and is hosted on
+            azurewebsites. The website has a very friendly user interface. The site contains various info box which will
+            guide you through the website. The map shows major flood zones in India with red circles. The degree of
+            redness indicates the degree of deaths. Due to lack of data we will use india-water.gov.in to provide
+            results of prediction.
             <br>
-            You can subscribe to our website using your email address to receive regular updates about flood forecast.
             <br>
-            Since social media is the largest source of audience, we also have our facebook page "Let's cope with
-            disaster" which gives warnings. Make sure to like the page.
-            <br><br>
-            Contact Us :
-            <br><br>
-            Mohit - mohit.verma741@gmail.com<br>
-            Aniket - aniketkumarj@gmail.com<br>
-            Maqbool - maqbool.dhn2011@gmail.com</p>
+            We used twitter API for analysing tweets. We extract all the tweets related to flood. From them we extract
+            location of the flood and mark it on the map. Warnings are issued to all the subscribes who could be
+            affected with the flood.
+            We also extract tweets that ask for help or could provide help for the flood affected areas. This could
+            speed up the job of flood relief teams.
+            We provide you the opportunity to volunteer for those in need. Register at Rescue / Volunteer page and now
+            you can see what resources people seek, who are stuck in flood.
+            <br>
+            <br>
+            You can subscribe to our website using your email address to receive regular updates about flood forecast. 
+            Since social media is the largest source of audience, we also have our facebook page "Auxilior" which gives
+            warnings. Make sure to like the page. </p>
+            <br>
+            <br>
+            <ul style="font-size: medium; font-family: 'Roboto', 'Lucida Grande', Verdana, Arial, sans-serif; color: #cd6b35">
+                Contact Us : 
+            <li>Mohit - mohitkv741@gmail.com
+            <li>Aniket - aniketkumarj@gmail.com
+            <li>Maqbool - maqbool.dhn2011@gmail.com
+            </ul>
+
     </div>
 </div>
 
