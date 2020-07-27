@@ -1,5 +1,5 @@
-Django
-django_tables2==1.19.0
+Django>=2
+django_tables2
 requests
 waitress==1.0.1
 django-apscheduler==0.2.13
